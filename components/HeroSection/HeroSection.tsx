@@ -1,3 +1,9 @@
+/* eslint-disable init-declarations */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable no-unused-vars */
+/* eslint-disable consistent-return */
+/* eslint-disable prefer-exponentiation-operator */
 import assest from "@/json/assest";
 import { HeroSectionWrap } from "@/styles/StyledComponents/HomeStyled";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -15,21 +21,163 @@ import {
   Stack,
   Typography
 } from "@mui/material";
+import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const sociallinks = [<LinkedInIcon />, <FacebookIcon />, <InstagramIcon />];
+interface MousePosition {
+  x: number;
+  y: number;
+}
+
+const sociallinks = [
+  { icon: <LinkedInIcon />, href: "/" },
+  { icon: <FacebookIcon />, href: "/" },
+  { icon: <InstagramIcon />, href: "/" }
+];
 
 const HeroSection: React.FC = () => {
+  // const wrapperRef = useRef<HTMLDivElement>(null);
+  // const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
+  // const speed = 0.1;
+
+  // const itemsRef = useRef<
+  //   Array<{
+  //     element: HTMLElement;
+  //     shiftValue: number;
+  //     xSet: (value: number) => void;
+  //     ySet: (value: number) => void;
+  //     currentX: number;
+  //     currentY: number;
+  //   }>
+  // >([]);
+
+  // const mouseMoveHandler = (e: MouseEvent) => {
+  //   setMouse({
+  //     x: e.clientX,
+  //     y: e.clientY
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   const wrapper = wrapperRef.current;
+
+  //   if (!wrapper) return;
+
+  //   const items = gsap.utils.toArray(
+  //     wrapper.querySelectorAll(".for-ani")
+  //   ) as HTMLElement[];
+
+  //   itemsRef.current = items.map((element) => ({
+  //     element,
+  //     shiftValue: Number(element.getAttribute("data-value")) / 250,
+  //     xSet: gsap.quickSetter(element, "x", "px"),
+  //     ySet: gsap.quickSetter(element, "y", "px"),
+  //     currentX: 0,
+  //     currentY: 0
+  //   }));
+
+  //   wrapper.addEventListener("mousemove", mouseMoveHandler);
+
+  //   const ticker = gsap.ticker.add(() => {
+  //     const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+
+  //     itemsRef.current.forEach((item) => {
+  //       item.xSet(item.shiftValue * mouse.x * dt);
+  //       item.ySet(item.shiftValue * mouse.y * dt);
+  //     });
+  //   });
+
+  //   return () => {
+  //     wrapper.removeEventListener("mousemove", mouseMoveHandler);
+  //     gsap.ticker.remove(ticker);
+  //   };
+  // }, [mouse]);
+
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
+  const speed = 0.1;
+
+  const itemsRef = useRef<
+    Array<{
+      element: HTMLElement;
+      shiftValue: number;
+      xSet: (value: number) => void;
+      ySet: (value: number) => void;
+      currentX: number;
+      currentY: number;
+    }>
+  >([]);
+
+  const debounce = (func: Function, wait: number) => {
+    let timeout: NodeJS.Timeout | undefined;
+
+    return (...args: any[]) => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  };
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+
+    if (!wrapper) return;
+
+    const items = gsap.utils.toArray(
+      wrapper.querySelectorAll(".for-ani")
+    ) as HTMLElement[];
+
+    itemsRef.current = items.map((element) => ({
+      element,
+      shiftValue: Number(element.getAttribute("data-value")) / 250,
+      xSet: gsap.quickSetter(element, "x", "px"),
+      ySet: gsap.quickSetter(element, "y", "px"),
+      currentX: 0,
+      currentY: 0
+    }));
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMouse({
+        x: e.clientX,
+        y: e.clientY
+      });
+    };
+
+    wrapper.addEventListener("mousemove", handleMouseMove);
+
+    const updateAnimation = () => {
+      const dt = gsap.ticker.deltaRatio();
+      const factor = 1.0 - Math.pow(1.0 - speed, dt);
+
+      itemsRef.current.forEach((item) => {
+        const newX = item.shiftValue * mouse.x * factor;
+        const newY = item.shiftValue * mouse.y * factor;
+        item.xSet(newX);
+        item.ySet(newY);
+      });
+
+      requestAnimationFrame(updateAnimation);
+    };
+
+    updateAnimation();
+
+    return () => {
+      wrapper.removeEventListener("mousemove", handleMouseMove);
+      gsap.ticker.remove(updateAnimation);
+    };
+  }, [mouse, speed]);
+
   return (
-    <HeroSectionWrap>
+    <HeroSectionWrap ref={wrapperRef}>
       <Container fixed maxWidth="xl">
         <Grid container alignItems="center">
           <Grid item lg={5}>
             <Box className="static-hero-inner">
               <Typography variant="h1">
-                <span>Hello,</span>I am Bivash.
+                <span>Hello,</span> I am Bivash.
               </Typography>
               <Typography variant="h3">HTML Developer</Typography>
               <Typography variant="body1">
@@ -50,9 +198,9 @@ const HeroSection: React.FC = () => {
                   Download Resume
                 </CustomButtonPrimary>
                 <List className="social-links">
-                  {sociallinks.map((data) => (
-                    <ListItem>
-                      <Link href="/">{data}</Link>
+                  {sociallinks.map((data, index) => (
+                    <ListItem key={index}>
+                      <Link href={data.href}>{data.icon}</Link>
                     </ListItem>
                   ))}
                 </List>
@@ -69,21 +217,21 @@ const HeroSection: React.FC = () => {
                   alt="main"
                   className="main-round-img"
                 />
-                <Box className="icon-1 floating-item">
+                <Box className="icon-1 floating-item for-ani" data-value="-15">
                   <Image
                     src={assest.reactJs}
                     width={70}
                     height={70}
-                    alt="main"
+                    alt="React.js"
                   />
                 </Box>
-                <Box className="icon-2 floating-item">
-                  <Image src={assest.html} width={70} height={70} alt="main" />
+                <Box className="icon-2 floating-item for-ani" data-value="-15">
+                  <Image src={assest.html} width={70} height={70} alt="HTML" />
                 </Box>
-                <Box className="icon-3 floating-item">
-                  <Image src={assest.css} width={70} height={70} alt="main" />
+                <Box className="icon-3 floating-item for-ani" data-value="15">
+                  <Image src={assest.css} width={70} height={70} alt="CSS" />
                 </Box>
-                <Box className="icon-4">
+                <Box className="icon-4 for-ani" data-value="-15">
                   <VerifiedUserIcon />
                   <Box className="client-project">
                     <Typography variant="body1">40+</Typography>
