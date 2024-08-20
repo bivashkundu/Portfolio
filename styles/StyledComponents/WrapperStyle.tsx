@@ -1,10 +1,13 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material";
 import Box from "@mui/material/Box";
 
 export const WrapperStyle = styled(Box)`
+  position: relative;
+
   .main_body {
     min-height: calc(100vh - 96px);
   }
+
   strong,
   b {
     font-weight: 700;
@@ -16,13 +19,12 @@ export const WrapperStyle = styled(Box)`
   }
 
   a {
-    color: #00a5d0;
     display: inline-block;
     text-decoration: none;
   }
 
   a:hover {
-    color: #00a5d0;
+    color: #41b362;
   }
 
   a:focus {
@@ -37,7 +39,7 @@ export const WrapperStyle = styled(Box)`
   h6 {
     padding: 0;
     margin: 0;
-    color: var(--color07171E);
+    color: var(--white);
   }
 
   p:last-child {
@@ -125,14 +127,15 @@ export const WrapperStyle = styled(Box)`
   button:hover,
   input[type="button"]:hover,
   input[type="submit"]:hover {
-    background-color: #51bff0;
-    color: #ffffff;
     outline: none;
     text-decoration: none;
   }
 
   // ==============================
   .MuiContainer-root {
+    position: relative;
+    z-index: 11;
+
     &.cus_container {
       @media (min-width: 1400px) {
         max-width: 1470px;

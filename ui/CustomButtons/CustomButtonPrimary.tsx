@@ -4,11 +4,13 @@ import Button, { ButtonProps } from "@mui/material/Button";
 
 const CustomButtonWrapper = styled(Button)`
   display: flex;
-  padding: 16px 44px;
+  padding: 12px 26px;
   border-radius: 50px;
-  min-width: 194px;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
+  text-transform: capitalize;
+
   &.Mui-disabled {
     background-color: ${primaryColors?.disabledBg};
     border: 1px solid ${primaryColors?.disabledBg};
@@ -20,6 +22,7 @@ const CustomButtonWrapper = styled(Button)`
       filter: contrast(0);
     }
   }
+
   &.smallButton {
     padding: 4px 16px;
     width: auto;
@@ -30,11 +33,13 @@ const CustomButtonWrapper = styled(Button)`
       color: ${primaryColors?.black};
     }
   }
+
   p {
     font-size: 16px;
     font-weight: 500;
     color: ${primaryColors?.white};
   }
+
   span {
     div {
       display: inline-flex;
@@ -42,9 +47,6 @@ const CustomButtonWrapper = styled(Button)`
       justify-content: center;
     }
   }
-  /* img {
-    width: 24px;
-  } */
 `;
 
 interface CustomButtonprops extends ButtonProps {

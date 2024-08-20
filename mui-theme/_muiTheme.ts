@@ -1,8 +1,10 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable mui-path-imports/mui-path-imports */
 import { PaletteMode } from "@mui/material";
 import type { ThemeOptions } from "@mui/material/styles";
+import { Inter } from "next/font/google";
 import { pallete, primaryColors } from "./_muiPalette";
 
 /**
@@ -13,71 +15,49 @@ import { pallete, primaryColors } from "./_muiPalette";
  * or "dark".
  * @returns The function `MuiThemeOptions` returns a `ThemeOptions` object.
  */
+
+export const inter = Inter({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter"
+});
+
 export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
   return {
     palette: pallete(mode),
     typography: {
-      fontFamily: ["Roboto"].join(","),
+      fontFamily: [`${inter.style.fontFamily}`].join(","),
       fontSize: 16,
       h1: {
         fontSize: "67px",
         lineHeight: "1.1em",
-        fontWeight: "700",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "22px",
-          lineHeight: "1.1em"
-        }
+        fontWeight: "700"
       },
       h2: {
         fontSize: "106px",
         lineHeight: "1.1em",
-        fontWeight: "400",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "22px",
-          lineHeight: "26px"
-        }
+        fontWeight: "400"
       },
       h3: {
         fontSize: "20px",
         lineHeight: "1.1em",
-        fontWeight: "700",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "18px",
-          lineHeight: "1.1em"
-        }
+        fontWeight: "700"
       },
       h4: {
         fontSize: "18px",
         lineHeight: "1.3",
-        fontWeight: "500",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "16px",
-          lineHeight: "1.3"
-        }
+        fontWeight: "500"
       },
       h5: {
         fontSize: "15px",
         lineHeight: "1.4",
-        fontWeight: "500",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "12px",
-          lineHeight: "1.4"
-        }
+        fontWeight: "500"
       },
       h6: {
         fontSize: "12px",
         lineHeight: "1.5",
-        fontWeight: "500",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "12px",
-          lineHeight: "1.5"
-        }
+        fontWeight: "500"
       },
       body1: {
         fontSize: "16px",
@@ -259,12 +239,12 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
               ownerState.color === "primary"
             ) {
               return {
-                // backgroundColor: primaryColors?.primary,
-                background: ` linear-gradient(279deg, ${primaryColors?.primary1} -7.77%, ${primaryColors?.primary} 109.39%);`,
+                backgroundColor: primaryColors?.primary,
                 borderRadius: "50px",
+                color: primaryColors?.white,
 
                 "&:hover": {
-                  background: ` linear-gradient(279deg, ${primaryColors?.primary} -7.77%, ${primaryColors?.primary1} 109.39%);`,
+                  background: primaryColors?.primary1,
                   color: primaryColors?.white
                 }
               };

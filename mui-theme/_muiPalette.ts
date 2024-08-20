@@ -4,11 +4,10 @@
 import { PaletteMode, PaletteOptions } from "@mui/material";
 
 export const primaryColors = {
-  primary: "#16A6DF",
-  primary1: "#C2A6F4",
-
+  primary: "#41b362",
+  primary1: "#279747",
   primary_600: "#5871D0",
-  secondary: "#FF8EB2",
+  secondary: "#FFE600",
   secondaryBorder: "#F380A5",
   info: "#7CD1D2",
   infoBorder: "#67C1C2",
@@ -19,8 +18,8 @@ export const primaryColors = {
   white: "#fff",
   black: "#000",
   bodyColor: "#F4F6F8",
-  mainFontColor: "#848484",
-  textPrimaryColor: "#070707",
+  mainFontColor: "#585858",
+  textPrimaryColor: "#131313",
   borderprimary: "#DBE0E8",
   border_primary: "#DBE0E8",
   warning_color: "#FFEFD7",
@@ -35,8 +34,6 @@ export const primaryColors = {
   pendingTextColor: "#6F4F1F",
   textDanger: "#9B3858",
   dangerColor: "#FFECF2",
-
-  // borderprimary:"#DBE0E8",
   chipErrorBg: "#FFECF2",
   chipErrorText: "#9B3858",
   cardShadow: "#0707070F",
