@@ -22,27 +22,14 @@ const Wrapper = (props: wrapperProps) => {
   const handleClose = () => {
     setOpen(false);
   };
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
 
-  // useEffect(() => {
-  //   if (document) {
-  //     const hdrElm = document.querySelector<HTMLElement>(".main_head");
-  //     const hdrHeight = hdrElm?.clientHeight;
-  //     const paaddngELM = document.querySelector<HTMLElement>(".body_content");
-  //     if (!!paaddngELM) {
-  //       paaddngELM.style.paddingTop = hdrHeight + "px";
-  //     }
-  //   }
-  // });
   const router = useRouter();
 
   const routerText = router.pathname.split("");
 
   routerText.shift();
   const favText = routerText.join("").toString().toUpperCase();
-  const projectName = "Procell";
+  const projectName = "Bivash Kundu";
 
   useOnlineStatus();
 

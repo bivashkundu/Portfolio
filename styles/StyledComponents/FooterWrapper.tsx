@@ -1,3 +1,3 @@
 import { Box, styled } from "@mui/material";
 
-export const HeaderWrap = styled(Box)``;
+export const FooterWrap = styled(Box)``;
