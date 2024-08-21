@@ -188,7 +188,7 @@ const HeroSection: React.FC = () => {
                 direction="row"
                 alignItems="center"
                 flexWrap="nowrap"
-                className="btm-stack"
+                className="btm-stack a"
               >
                 <CustomButtonPrimary
                   variant="contained"
