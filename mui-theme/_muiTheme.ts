@@ -31,17 +31,17 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
       fontSize: 16,
       h1: {
         fontSize: "67px",
-        lineHeight: "1.1em",
+        lineHeight: "1.2",
         fontWeight: "700"
       },
       h2: {
         fontSize: "106px",
-        lineHeight: "1.1em",
+        lineHeight: "1.2",
         fontWeight: "400"
       },
       h3: {
         fontSize: "20px",
-        lineHeight: "1.1em",
+        lineHeight: "1.5",
         fontWeight: "700"
       },
       h4: {

@@ -6,7 +6,7 @@ import { PaletteMode, PaletteOptions } from "@mui/material";
 export const primaryColors = {
   primary: "#41b362",
   primary1: "#279747",
-  primary_600: "#5871D0",
+  primary_600: "#131313",
   secondary: "#FFE600",
   secondaryBorder: "#F380A5",
   info: "#7CD1D2",
@@ -21,7 +21,6 @@ export const primaryColors = {
   mainFontColor: "#585858",
   textPrimaryColor: "#131313",
   borderprimary: "#DBE0E8",
-  border_primary: "#DBE0E8",
   warning_color: "#FFEFD7",
   success_color: "#D4FEFF",
   text_success: "#3C8183",
@@ -38,12 +37,13 @@ export const primaryColors = {
   chipErrorText: "#9B3858",
   cardShadow: "#0707070F",
   tableshadow: "rgba(7, 7, 7, 0.06)",
-  secondaryFont: "#4D4E4E",
+  secondaryFont: "#c0c0c2",
   tertiaryFont: "#585858",
   color060606: "#060606",
   colorF6EFF8: "#F6EFF8",
   colorfdf8ff: "#fdf8ff",
-  color2F3240: "#2F3240"
+  color2F3240: "#2F3240",
+  color1F1E1D: "#1F1E1D"
 };
 
 export const pallete = (mode: PaletteMode): PaletteOptions => {

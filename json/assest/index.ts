@@ -7,5 +7,8 @@ export default {
   avatarMain: "/assets/images/avatar-main.jpg",
   reactJs: "/assets/images/react-js.svg",
   html: "/assets/images/html5.svg",
-  css: "/assets/images/css3.svg"
+  css: "/assets/images/css3.svg",
+  about: "/assets/images/about.jpg",
+  aboutbg: "/assets/images/aboutbg.png",
+  heroBg: "/assets/images/heroBg.png"
 };

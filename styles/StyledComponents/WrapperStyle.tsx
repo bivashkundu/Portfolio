@@ -143,4 +143,15 @@ export const WrapperStyle = styled(Box)`
     }
   }
   //   ======================
+
+  .cmn-sec-class {
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 150px 0;
+    min-height: 100vh;
+  }
 `;

@@ -1,14 +1,9 @@
+import assest from "@/json/assest";
 import { primaryColors } from "@/themes/_muiPalette";
 import { Box, styled } from "@mui/material";
 
 export const HeroSectionWrap = styled(Box)`
-  background: #131313;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 150px 0;
+  background: url(${assest.heroBg}) no-repeat;
 
   .static-hero-inner {
     h1 {
@@ -68,19 +63,6 @@ export const HeroSectionWrap = styled(Box)`
     }
   }
 
-  .shape-1 {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-  }
-
-  .shape-2 {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
-  }
-
   .floating-item {
     width: 110px;
     height: 110px;
@@ -98,22 +80,22 @@ export const HeroSectionWrap = styled(Box)`
   }
 
   .static-hero-right {
-    text-align: right;
+    text-align: center;
     position: relative;
   }
 
   .icon-1 {
-    left: 42%;
-    top: 22%;
+    left: 0;
+    top: 10%;
   }
 
   .icon-2 {
-    right: -5%;
-    top: 22%;
+    right: 0;
+    top: 10%;
   }
 
   .icon-3 {
-    right: 3%;
+    right: 0;
     bottom: 0;
   }
 
@@ -126,7 +108,7 @@ export const HeroSectionWrap = styled(Box)`
     background-color: ${primaryColors.white};
     position: absolute;
     bottom: 0;
-    left: 42%;
+    left: 0;
     padding: 8px 30px 8px 20px;
     text-align: left;
 
@@ -144,6 +126,118 @@ export const HeroSectionWrap = styled(Box)`
 
     span {
       color: ${primaryColors.mainFontColor};
+    }
+  }
+
+  .about-exprience-wrap {
+    background: linear-gradient(180deg, #2e2c1f 0%, #1b1b19 100%);
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 245px;
+    width: 100%;
+    margin-left: auto;
+
+    li {
+      flex-direction: column;
+      align-items: flex-start;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid ${primaryColors.borderprimary};
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 32px;
+        font-weight: 700;
+        color: ${primaryColors.secondary};
+      }
+
+      span {
+        color: ${primaryColors.secondaryFont};
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+`;
+
+export const AboutSectionWrap = styled(Box)`
+  background: url(${assest.aboutbg}) no-repeat;
+
+  .left-caption {
+    figure {
+      max-width: 440px;
+      height: 530px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right;
+      }
+    }
+  }
+
+  .about-title {
+    margin-bottom: 40px;
+
+    h2 {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 44px;
+
+      .text-secondary {
+        display: block;
+        color: ${primaryColors.secondary};
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .text-primary {
+        color: ${primaryColors.primary};
+      }
+    }
+
+    p {
+      color: ${primaryColors.secondaryFont};
+      font-weight: 500;
+    }
+  }
+`;
+
+export const OuterCardGradiant = styled(Box, {
+  shouldForwardProp: (data) => data !== "color"
+})<{ color?: string }>`
+  background: ${({ color }) =>
+    color ||
+    "linear-gradient(180deg, rgba(255, 230, 0, 0.6) 0%, rgba(31, 30, 28, 0.6) 67.59%)"};
+  padding: 3px 3px 0 3px;
+  border-radius: 12px;
+
+  .prop-card {
+    padding: 15px;
+    background: ${primaryColors.color1F1E1D};
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: none;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: none;
+
+    h4 {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 14px;
+      color: ${({ color }) => color || "#FFE600"};
     }
   }
 `;

@@ -38,66 +38,9 @@ const sociallinks = [
 ];
 
 const HeroSection: React.FC = () => {
-  // const wrapperRef = useRef<HTMLDivElement>(null);
-  // const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
-  // const speed = 0.1;
-
-  // const itemsRef = useRef<
-  //   Array<{
-  //     element: HTMLElement;
-  //     shiftValue: number;
-  //     xSet: (value: number) => void;
-  //     ySet: (value: number) => void;
-  //     currentX: number;
-  //     currentY: number;
-  //   }>
-  // >([]);
-
-  // const mouseMoveHandler = (e: MouseEvent) => {
-  //   setMouse({
-  //     x: e.clientX,
-  //     y: e.clientY
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   const wrapper = wrapperRef.current;
-
-  //   if (!wrapper) return;
-
-  //   const items = gsap.utils.toArray(
-  //     wrapper.querySelectorAll(".for-ani")
-  //   ) as HTMLElement[];
-
-  //   itemsRef.current = items.map((element) => ({
-  //     element,
-  //     shiftValue: Number(element.getAttribute("data-value")) / 250,
-  //     xSet: gsap.quickSetter(element, "x", "px"),
-  //     ySet: gsap.quickSetter(element, "y", "px"),
-  //     currentX: 0,
-  //     currentY: 0
-  //   }));
-
-  //   wrapper.addEventListener("mousemove", mouseMoveHandler);
-
-  //   const ticker = gsap.ticker.add(() => {
-  //     const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
-
-  //     itemsRef.current.forEach((item) => {
-  //       item.xSet(item.shiftValue * mouse.x * dt);
-  //       item.ySet(item.shiftValue * mouse.y * dt);
-  //     });
-  //   });
-
-  //   return () => {
-  //     wrapper.removeEventListener("mousemove", mouseMoveHandler);
-  //     gsap.ticker.remove(ticker);
-  //   };
-  // }, [mouse]);
-
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
-  const speed = 0.1;
+  const speed = 0.3;
 
   const itemsRef = useRef<
     Array<{
@@ -133,20 +76,20 @@ const HeroSection: React.FC = () => {
     itemsRef.current = items.map((element) => ({
       element,
       shiftValue: Number(element.getAttribute("data-value")) / 250,
-      xSet: gsap.quickSetter(element, "x", "px"),
-      ySet: gsap.quickSetter(element, "y", "px"),
+      xSet: gsap.quickSetter(element, "x", "px") as (value: number) => void,
+      ySet: gsap.quickSetter(element, "y", "px") as (value: number) => void,
       currentX: 0,
       currentY: 0
     }));
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const mouseMoveHandler = debounce((e: MouseEvent) => {
       setMouse({
         x: e.clientX,
         y: e.clientY
       });
-    };
+    }, 10);
 
-    wrapper.addEventListener("mousemove", handleMouseMove);
+    wrapper.addEventListener("mousemove", mouseMoveHandler);
 
     const updateAnimation = () => {
       const dt = gsap.ticker.deltaRatio();
@@ -165,16 +108,61 @@ const HeroSection: React.FC = () => {
     updateAnimation();
 
     return () => {
-      wrapper.removeEventListener("mousemove", handleMouseMove);
+      wrapper.removeEventListener("mousemove", mouseMoveHandler);
       gsap.ticker.remove(updateAnimation);
     };
   }, [mouse, speed]);
 
+  //Fade-In-Left Effect
+
+  const fadeInLeftRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = fadeInLeftRef.current;
+    if (element) {
+      gsap.fromTo(
+        element,
+        { opacity: 0, x: -100 },
+        { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
+      );
+    }
+  }, []);
+
+  //Fade-In-Right Effect
+
+  const fadeInRightRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = fadeInRightRef.current;
+    if (element) {
+      gsap.fromTo(
+        element,
+        { opacity: 0, x: 100 },
+        { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
+      );
+    }
+  }, []);
+
+  //Fade-In-up Effect
+
+  const fadeInUpRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = fadeInUpRef.current;
+    if (element) {
+      gsap.fromTo(
+        element,
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }
+      );
+    }
+  }, []);
+
   return (
-    <HeroSectionWrap ref={wrapperRef}>
+    <HeroSectionWrap ref={wrapperRef} className="cmn-sec-class">
       <Container fixed maxWidth="xl">
         <Grid container alignItems="center">
-          <Grid item lg={5}>
+          <Grid item lg={4.5} ref={fadeInLeftRef}>
             <Box className="static-hero-inner">
               <Typography variant="h1">
                 <span>Hello,</span> I am Bivash.
@@ -207,7 +195,7 @@ const HeroSection: React.FC = () => {
               </Stack>
             </Box>
           </Grid>
-          <Grid item lg={7}>
+          <Grid item lg={4.5} ref={fadeInUpRef}>
             <Box className="static-hero-right">
               <Box className="static-hero-img">
                 <Image
@@ -228,7 +216,7 @@ const HeroSection: React.FC = () => {
                 <Box className="icon-2 floating-item for-ani" data-value="-15">
                   <Image src={assest.html} width={70} height={70} alt="HTML" />
                 </Box>
-                <Box className="icon-3 floating-item for-ani" data-value="15">
+                <Box className="icon-3 floating-item for-ani" data-value="-15">
                   <Image src={assest.css} width={70} height={70} alt="CSS" />
                 </Box>
                 <Box className="icon-4 for-ani" data-value="-15">
@@ -241,14 +229,24 @@ const HeroSection: React.FC = () => {
               </Box>
             </Box>
           </Grid>
+          <Grid item lg={3} ref={fadeInRightRef}>
+            <List className="about-exprience-wrap">
+              <ListItem>
+                <Typography variant="body1">5+</Typography>
+                <Typography variant="caption">Years of Experience</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography variant="body1">30+</Typography>
+                <Typography variant="caption">Project Complete</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography variant="body1">98%</Typography>
+                <Typography variant="caption">Client Satisfactions</Typography>
+              </ListItem>
+            </List>
+          </Grid>
         </Grid>
       </Container>
-      <Box className="shape-1">
-        <Image src={assest.line1} width={866} height={515} alt="line1" />
-      </Box>
-      <Box className="shape-2">
-        <Image src={assest.line2} width={1238} height={858} alt="line2" />
-      </Box>
     </HeroSectionWrap>
   );
 };
