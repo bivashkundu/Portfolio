@@ -1,12 +1,99 @@
 import AboutSection from "@/components/HeroSection/AboutSection";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import { GsapAnimationStyled } from "@/themes/_gsap_utils";
+import { Box } from "@mui/material";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useEffect, useState } from "react";
 
+gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
+  useEffect(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1200px)", () => {
+      const sections = gsap.utils.toArray(".cmn_sec");
+      sections.forEach((elem: any, index: number) => {
+        setTimeout(() => {
+          gsap.timeline({
+            scrollTrigger: {
+              trigger: elem,
+              start: "top bottom",
+              end: () => "bottom bottom",
+              scrub: 1,
+              onUpdate: (self) => {
+                if (self.progress === 1) {
+                  elem.classList.add("add_fixed");
+                } else {
+                  elem.classList.remove("add_fixed");
+                }
+
+                if (index > 0) {
+                  const prevElem: any = sections[index - 1];
+                  if (self.progress > 0.2 && self.progress < 1) {
+                    gsap.to(prevElem, {
+                      duration: 0.5,
+                      filter: "blur(5px)"
+                    });
+                  } else {
+                    gsap.to(prevElem, {
+                      duration: 0.5,
+                      filter: "blur(0px)"
+                    });
+                  }
+                }
+              }
+            }
+          });
+        }, index * 100);
+      });
+    });
+  }, []);
+
+  const [height, setHeight] = useState<any>([]);
+
+  useEffect(() => {
+    const updateSectionHeights = () => {
+      const sections = document.querySelectorAll(".cmn_sec1");
+      const heightsArray: any = [];
+
+      sections.forEach((section) => {
+        const boundingRect = section.getBoundingClientRect().height;
+        heightsArray.push(boundingRect);
+      });
+
+      if (heightsArray.length) {
+        setHeight(heightsArray);
+      }
+    };
+
+    updateSectionHeights();
+
+    window.addEventListener("resize", updateSectionHeights);
+
+    return () => {
+      window.removeEventListener("resize", updateSectionHeights);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      ScrollTrigger.refresh();
+    });
+  }, []);
+
   return (
     <Wrapper>
-      <HeroSection />
-      <AboutSection />
+      <GsapAnimationStyled minHeight={`${height[0]}px`}>
+        <Box className="cmn_sec">
+          <HeroSection />
+        </Box>
+      </GsapAnimationStyled>
+      <GsapAnimationStyled minHeight={`${height[1]}px`}>
+        <Box className="cmn_sec cmn_sec1">
+          <AboutSection />
+        </Box>
+      </GsapAnimationStyled>
     </Wrapper>
   );
 }

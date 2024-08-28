@@ -2,12 +2,13 @@ import { primaryColors } from "@/themes/_muiPalette";
 import { Box, styled } from "@mui/material";
 
 export const HeaderWrap = styled(Box)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  transition: all ease-in-out 400ms;
   .custom-appbar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 99;
     background: transparent;
     padding: 0;
 

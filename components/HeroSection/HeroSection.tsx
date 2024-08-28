@@ -14,6 +14,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import {
   Box,
+  BoxProps,
   Container,
   Grid,
   List,
@@ -37,10 +38,10 @@ const sociallinks = [
   { icon: <InstagramIcon />, href: "/" }
 ];
 
-const HeroSection: React.FC = () => {
+const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
-  const speed = 0.3;
+  const speed = 0.1;
 
   const itemsRef = useRef<
     Array<{
@@ -75,7 +76,7 @@ const HeroSection: React.FC = () => {
 
     itemsRef.current = items.map((element) => ({
       element,
-      shiftValue: Number(element.getAttribute("data-value")) / 250,
+      shiftValue: Number(element.getAttribute("data-value")) / 1500,
       xSet: gsap.quickSetter(element, "x", "px") as (value: number) => void,
       ySet: gsap.quickSetter(element, "y", "px") as (value: number) => void,
       currentX: 0,
@@ -84,8 +85,8 @@ const HeroSection: React.FC = () => {
 
     const mouseMoveHandler = debounce((e: MouseEvent) => {
       setMouse({
-        x: e.clientX,
-        y: e.clientY
+        x: e.clientX - window.innerWidth / 2,
+        y: e.clientY - window.innerHeight / 2
       });
     }, 10);
 
@@ -96,10 +97,10 @@ const HeroSection: React.FC = () => {
       const factor = 1.0 - Math.pow(1.0 - speed, dt);
 
       itemsRef.current.forEach((item) => {
-        const newX = item.shiftValue * mouse.x * factor;
-        const newY = item.shiftValue * mouse.y * factor;
-        item.xSet(newX);
-        item.ySet(newY);
+        item.currentX += (item.shiftValue * mouse.x - item.currentX) * factor;
+        item.currentY += (item.shiftValue * mouse.y - item.currentY) * factor;
+        item.xSet(item.currentX);
+        item.ySet(item.currentY);
       });
 
       requestAnimationFrame(updateAnimation);
@@ -113,53 +114,46 @@ const HeroSection: React.FC = () => {
     };
   }, [mouse, speed]);
 
-  //Fade-In-Left Effect
-
   const fadeInLeftRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const element = fadeInLeftRef.current;
-    if (element) {
-      gsap.fromTo(
-        element,
-        { opacity: 0, x: -100 },
-        { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
-      );
-    }
-  }, []);
-
-  //Fade-In-Right Effect
-
   const fadeInRightRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const element = fadeInRightRef.current;
-    if (element) {
-      gsap.fromTo(
-        element,
-        { opacity: 0, x: 100 },
-        { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
-      );
-    }
-  }, []);
-
-  //Fade-In-up Effect
-
   const fadeInUpRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const element = fadeInUpRef.current;
-    if (element) {
-      gsap.fromTo(
-        element,
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }
-      );
-    }
+    const fadeInLeftElement = fadeInLeftRef.current;
+    const fadeInRightElement = fadeInRightRef.current;
+    const fadeInUpElement = fadeInUpRef.current;
+
+    const fadeInAnimation = () => {
+      if (fadeInLeftElement) {
+        gsap.fromTo(
+          fadeInLeftElement,
+          { opacity: 0, x: -100 },
+          { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
+        );
+      }
+
+      if (fadeInRightElement) {
+        gsap.fromTo(
+          fadeInRightElement,
+          { opacity: 0, x: 100 },
+          { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
+        );
+      }
+
+      if (fadeInUpElement) {
+        gsap.fromTo(
+          fadeInUpElement,
+          { opacity: 0, y: 100 },
+          { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }
+        );
+      }
+    };
+
+    fadeInAnimation();
   }, []);
 
   return (
-    <HeroSectionWrap ref={wrapperRef} className="cmn-sec-class">
+    <HeroSectionWrap ref={wrapperRef} className="cmn-sec-class" {...props}>
       <Container fixed maxWidth="xl">
         <Grid container alignItems="center">
           <Grid item lg={4.5} ref={fadeInLeftRef}>

@@ -7,14 +7,14 @@ import {
   solidColors
 } from "@/json/mock/common.mock";
 import { AboutSectionWrap } from "@/styles/StyledComponents/HomeStyled";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, BoxProps, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import TechCard from "../TechCard/TechCard";
 
-const AboutSection: React.FC = () => {
+const AboutSection: React.FC<BoxProps> = ({ ...props }) => {
   return (
-    <AboutSectionWrap className="cmn-sec-class">
+    <AboutSectionWrap className="cmn-sec-class" {...props}>
       <Container fixed maxWidth="xl">
         <Grid container alignItems="center">
           <Grid item lg={6.5}>
