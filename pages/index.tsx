@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   useEffect(() => {
     const mm = gsap.matchMedia();
+
     mm.add("(min-width: 1200px)", () => {
       const sections = gsap.utils.toArray(".cmn_sec");
       sections.forEach((elem: any, index: number) => {
@@ -20,8 +21,10 @@ export default function Home() {
           gsap.timeline({
             scrollTrigger: {
               trigger: elem,
+              // pin: true,
               start: "top bottom",
               end: () => "bottom bottom",
+              // markers: true,
               scrub: 1,
               onUpdate: (self) => {
                 if (self.progress === 1) {
@@ -86,17 +89,17 @@ export default function Home() {
 
   return (
     <Wrapper>
-      <GsapAnimationStyled minHeight={`${height[0]}px`}>
-        <Box className="cmn_sec">
+      <GsapAnimationStyled minHeight={`${height[0]}px`} id="home">
+        <Box className="cmn_sec cmn_sec1">
           <HeroSection />
         </Box>
       </GsapAnimationStyled>
-      <GsapAnimationStyled minHeight={`${height[1]}px`}>
+      <GsapAnimationStyled minHeight={`${height[1]}px`} id="about">
         <Box className="cmn_sec cmn_sec1">
           <AboutSection />
         </Box>
       </GsapAnimationStyled>
-      <GsapAnimationStyled minHeight={`${height[2]}px`}>
+      <GsapAnimationStyled minHeight={`${height[2]}px`} id="resume">
         <Box className="cmn_sec cmn_sec1">
           <WorkExperience />
         </Box>

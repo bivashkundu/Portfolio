@@ -146,7 +146,6 @@ export const WrapperStyle = styled(Box)`
 
   .cmn-sec-class {
     background-size: cover;
-    position: relative;
     z-index: 1;
     overflow: hidden;
     display: flex;

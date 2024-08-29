@@ -21,15 +21,78 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const navItems = ["Home", "About", "Resume", "Service", "Project", "Contact"];
+const navItems = [
+  { name: "Home", link: "#home" },
+  { name: "About", link: "#about" },
+  { name: "Resume", link: "#resume" },
+  { name: "Service", link: "#service" },
+  { name: "Project", link: "#project" },
+  { name: "Contact", link: "#contact" }
+];
 
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const handleDrawerClick = () => {
     setOpenDrawer(!openDrawer);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map((item) =>
+        document.querySelector(item.link)
+      );
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.6
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      }, options);
+
+      sections.forEach((section) => {
+        if (section) {
+          observer.observe(section);
+        }
+      });
+
+      return () => {
+        sections.forEach((section) => {
+          if (section) {
+            observer.unobserve(section);
+          }
+        });
+      };
+    };
+
+    handleScroll();
+
+    return () => {
+      setActiveSection("");
+    };
+  }, []);
+
+  const handleClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    event.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.getBoundingClientRect().top + window.pageYOffset - 0,
+        behavior: "smooth"
+      });
+    }
   };
 
   return (
@@ -51,7 +114,15 @@ const Header = () => {
               <List className="header-menu">
                 {navItems.map((item) => (
                   <ListItem>
-                    <Link href="/">{item}</Link>
+                    <Link
+                      href={item.link}
+                      onClick={(e) => handleClick(e, item.link)}
+                      className={
+                        activeSection === item.link.slice(1) ? "active" : ""
+                      }
+                    >
+                      {item.name}
+                    </Link>
                   </ListItem>
                 ))}
               </List>

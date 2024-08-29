@@ -27,6 +27,21 @@ export const HeaderWrap = styled(Box)`
           font-weight: 600;
           position: relative;
           text-transform: capitalize;
+          position: relative;
+
+          &.active {
+            &::after {
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              height: 4px;
+              background: ${primaryColors.primary};
+              content: "";
+              transition: all 0.3s;
+              border-radius: 3px;
+            }
+          }
         }
       }
     }

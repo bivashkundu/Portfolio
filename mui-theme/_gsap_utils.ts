@@ -12,6 +12,7 @@ min-height: ${minHeight}px;
   .cmn_sec {
     min-height: 100vh;
     position: relative;
+    z-index: 2;
 
     @media (max-width: 1199px) {
       min-height: auto;
