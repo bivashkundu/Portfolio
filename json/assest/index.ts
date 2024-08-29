@@ -10,5 +10,7 @@ export default {
   css: "/assets/images/css3.svg",
   about: "/assets/images/about.jpg",
   aboutbg: "/assets/images/aboutbg.png",
-  heroBg: "/assets/images/heroBg.png"
+  heroBg: "/assets/images/heroBg.png",
+  workBg: "/assets/images/workBg.png",
+  ofcIcon: "/assets/images/ofcIcon.png"
 };

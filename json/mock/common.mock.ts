@@ -1,4 +1,7 @@
-import { TechCardPaperProps } from "@/interface/commonAll.interfaces";
+import {
+  ExperienceCardProps,
+  TechCardPaperProps
+} from "@/interface/commonAll.interfaces";
 
 export const demotechCardList: TechCardPaperProps[] = [
   {
@@ -43,4 +46,23 @@ export const solidColors = [
   "#FF9A00", // Color 4
   "#00A9FF", // Color 5
   "#AD00FF" // Color 6
+];
+
+export const experienceData: ExperienceCardProps[] = [
+  {
+    year: "2000 - 2000",
+    present: true,
+    name: "HTML Developer",
+    address: "Webskitters Technology Solutions (Kolkata,india)"
+  },
+  {
+    year: "2000 - 2000",
+    name: "Web Designer",
+    address: "Digital Web Avenue (Kolkata,india)"
+  },
+  {
+    year: "2000 - 2000",
+    name: "Junior Web Designer",
+    address: "Max bridge solutions (Kolkata,india)"
+  }
 ];

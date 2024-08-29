@@ -5,3 +5,17 @@ export interface TechCardPaperProps extends BoxProps {
   text: string;
   color?: string;
 }
+
+export interface PageHeadingProps extends BoxProps {
+  heading: string;
+  primaryText: string;
+  endText: string;
+  titile: string;
+}
+
+export interface ExperienceCardProps {
+  year: string;
+  present?: boolean;
+  name: string;
+  address: string;
+}

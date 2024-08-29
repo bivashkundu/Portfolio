@@ -32,7 +32,7 @@ interface MousePosition {
   y: number;
 }
 
-const sociallinks = [
+export const sociallinks = [
   { icon: <LinkedInIcon />, href: "/" },
   { icon: <FacebookIcon />, href: "/" },
   { icon: <InstagramIcon />, href: "/" }
@@ -216,7 +216,7 @@ const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
                 <Box className="icon-4 for-ani" data-value="-15">
                   <VerifiedUserIcon />
                   <Box className="client-project">
-                    <Typography variant="body1">40+</Typography>
+                    <Typography variant="body1">30+</Typography>
                     <Typography variant="caption">Complete Projects</Typography>
                   </Box>
                 </Box>

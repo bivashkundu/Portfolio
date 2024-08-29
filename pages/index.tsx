@@ -1,5 +1,6 @@
 import AboutSection from "@/components/HeroSection/AboutSection";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import WorkExperience from "@/components/HeroSection/WorkExperience";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { GsapAnimationStyled } from "@/themes/_gsap_utils";
 import { Box } from "@mui/material";
@@ -8,6 +9,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
+
 export default function Home() {
   useEffect(() => {
     const mm = gsap.matchMedia();
@@ -92,6 +94,11 @@ export default function Home() {
       <GsapAnimationStyled minHeight={`${height[1]}px`}>
         <Box className="cmn_sec cmn_sec1">
           <AboutSection />
+        </Box>
+      </GsapAnimationStyled>
+      <GsapAnimationStyled minHeight={`${height[2]}px`}>
+        <Box className="cmn_sec cmn_sec1">
+          <WorkExperience />
         </Box>
       </GsapAnimationStyled>
     </Wrapper>

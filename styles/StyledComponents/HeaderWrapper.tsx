@@ -1,5 +1,5 @@
 import { primaryColors } from "@/themes/_muiPalette";
-import { Box, styled } from "@mui/material";
+import { Box, Drawer, styled } from "@mui/material";
 
 export const HeaderWrap = styled(Box)`
   position: fixed;
@@ -45,6 +45,8 @@ export const HeaderWrap = styled(Box)`
         border-radius: 50%;
         background-color: ${primaryColors.primary};
         cursor: pointer;
+        padding: 0;
+        min-width: auto;
 
         .toggle-inner {
           display: flex;
@@ -74,6 +76,76 @@ export const HeaderWrap = styled(Box)`
           .toggle-inner {
             span {
               width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const HeaderDrawer = styled(Drawer)`
+  .drawer-paper-root {
+    padding: 80px 50px 50px;
+    width: 100%;
+    max-width: 420px;
+    background-color: ${primaryColors.color282828};
+
+    .close-drawer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: ${primaryColors.secondary};
+      border-radius: 0;
+      background-color: ${primaryColors.color111111};
+    }
+
+    .drawer-contant {
+      h5 {
+        font-size: 22px;
+        margin-bottom: 30px;
+      }
+
+      .btm-media-sec {
+        text-align: center;
+        padding-top: 50px;
+
+        a {
+          color: ${primaryColors.textDisabled};
+        }
+
+        .social-links {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0 15px;
+          margin-top: 20px;
+
+          li {
+            width: auto;
+            display: block;
+
+            a {
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              width: 40px;
+              height: 40px;
+              background-color: ${primaryColors.white};
+              border-radius: 50%;
+              transition: 0.3s all ease-in-out 0s;
+              -webkit-transition: 0.3s all ease-in-out 0s;
+              -moz-transition: 0.3s all ease-in-out 0s;
+
+              svg {
+                width: 20px;
+                height: auto;
+                color: ${primaryColors.textPrimaryColor};
+              }
+
+              &:hover {
+                background-color: ${primaryColors.primary};
+              }
             }
           }
         }

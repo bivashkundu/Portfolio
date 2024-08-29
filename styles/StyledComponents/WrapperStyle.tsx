@@ -151,7 +151,14 @@ export const WrapperStyle = styled(Box)`
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 150px 0;
+    padding: 100px 0;
     min-height: 100vh;
+  }
+
+  .text-primary {
+    color: #41b362;
+  }
+  .text-secondary {
+    color: #ffe600;
   }
 `;

@@ -194,10 +194,6 @@ export const AboutSectionWrap = styled(Box)`
         font-weight: 600;
         margin-bottom: 15px;
       }
-
-      .text-primary {
-        color: ${primaryColors.primary};
-      }
     }
 
     p {
@@ -238,6 +234,22 @@ export const OuterCardGradiant = styled(Box, {
     p {
       font-size: 14px;
       color: ${({ color }) => color || "#FFE600"};
+    }
+  }
+`;
+
+export const WorkExperienceWrap = styled(Box)`
+  background: url(${assest.workBg}) no-repeat;
+
+  .work-list {
+    width: 100%;
+    max-width: 1290px;
+    margin: 50px auto 0;
+
+    .work-item {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
     }
   }
 `;
