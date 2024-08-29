@@ -4,6 +4,7 @@ import { Typography } from "@mui/material";
 import React from "react";
 
 const PageHeading: React.FC<PageHeadingProps> = ({
+  shortTitle,
   heading,
   primaryText,
   endText,
@@ -12,6 +13,9 @@ const PageHeading: React.FC<PageHeadingProps> = ({
 }) => {
   return (
     <PageHeadingBox {...other}>
+      <Typography variant="caption" className="top-title">
+        {shortTitle}
+      </Typography>
       <Typography variant="h3">
         {heading} <span className="text-primary">{primaryText}</span> {endText}
       </Typography>

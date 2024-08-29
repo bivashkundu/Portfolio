@@ -8,15 +8,33 @@ import {
 } from "@/json/mock/common.mock";
 import { AboutSectionWrap } from "@/styles/StyledComponents/HomeStyled";
 import { Box, BoxProps, Container, Grid, Typography } from "@mui/material";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import TechCard from "../TechCard/TechCard";
 
 const AboutSection: React.FC<BoxProps> = ({ ...props }) => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    gsap.to(".zoom-scale", {
+      transform: "scale(0.5)",
+      scrollTrigger: {
+        trigger: ".left-caption",
+        start: "top 10%",
+        end: "bottom top",
+        scrub: 1
+      },
+      duration: 1,
+      ease: "none"
+    });
+  }, []);
+
   return (
     <AboutSectionWrap className="cmn-sec-class" {...props}>
       <Container fixed maxWidth="xl">
-        <Grid container alignItems="center">
+        <Grid container alignItems="center" className="zoom-scale">
           <Grid item lg={6.5}>
             <Box className="left-caption">
               <figure>

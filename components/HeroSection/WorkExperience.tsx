@@ -11,6 +11,7 @@ const WorkExperience: React.FC = () => {
     <WorkExperienceWrap className="cmn-sec-class">
       <Container fixed maxWidth="xl">
         <PageHeading
+          shortTitle="My Resume"
           heading="Real"
           primaryText="Problem Solution"
           endText="Experience"

@@ -4,6 +4,14 @@ import { Box, styled } from "@mui/material";
 export const PageHeadingBox = styled(Box)`
   text-align: center;
 
+  .top-title {
+    display: block;
+    color: ${primaryColors.secondary};
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
   h3 {
     text-transform: capitalize;
     font-weight: 600;
