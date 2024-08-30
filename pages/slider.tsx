@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { Box, Button, styled } from "@mui/material";
+import Image from "next/image";
 import React from "react";
 
 const Slider = styled(Box)`
@@ -26,35 +27,45 @@ const Slider = styled(Box)`
       transition: all 1s cubic-bezier(0.28, 0.55, 0.385, 1.65);
       width: 100%;
 
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* 
       &:nth-child(1) {
         z-index: 6;
-        top: 1rem;
-        transform: scale(1.1);
+        top: 3rem;
+        right: 1rem;
+        transform: translateX(-5rem);
         opacity: 0;
+      } */
+
+      &:nth-child(1) {
+        z-index: 5;
+        top: 1rem;
+        right: 3rem;
+        opacity: 1;
       }
 
       &:nth-child(2) {
-        z-index: 5;
-        top: 0;
-        transform: scale(1);
+        z-index: 4;
+        top: -2rem;
+        right: 0;
+        transform: scale(0.95);
         opacity: 1;
       }
 
       &:nth-child(3) {
-        z-index: 4;
-        top: -1rem;
-        transform: scale(0.95);
-        opacity: 0.8;
-      }
-
-      &:nth-child(4) {
-        z-index: 4;
-        top: -2rem;
+        z-index: 3;
+        top: -4rem;
+        right: -3rem;
         transform: scale(0.9);
-        opacity: 0.7;
+        opacity: 1;
+        /* animation: fade-in-right 1s; */
       }
 
-      &:nth-child(n + 5) {
+      &:nth-child(n + 4) {
         z-index: 3;
         top: -3rem;
         transform: scale(0.8);
@@ -67,6 +78,24 @@ const Slider = styled(Box)`
     from {
       transform: scale(0.5);
       opacity: 0;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in-right {
+    from {
+      transform: translateX(-2rem);
+      transform: scale(0.9);
+    }
+    to {
+      transform: translateX(0);
+      transform: scale(0.9);
     }
   }
 
@@ -102,11 +131,39 @@ export default function slider() {
   return (
     <Slider>
       <div className="carousel" ref={carouselRef}>
-        <div className="carousel__item">1</div>
-        <div className="carousel__item">2</div>
-        <div className="carousel__item">3</div>
-        <div className="carousel__item">4</div>
-        <div className="carousel__item">5</div>
+        <div className="carousel__item">
+          <Image
+            src="https://images.unsplash.com/photo-1724805053809-3c09736b2ade?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D/"
+            alt="img"
+            width={400}
+            height={400}
+          />
+        </div>
+        <div className="carousel__item">
+          <Image
+            src="https://images.unsplash.com/photo-1724781598192-19bed9bffab0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="img"
+            width={400}
+            height={400}
+          />
+        </div>
+        <div className="carousel__item">
+          {" "}
+          <Image
+            src="https://images.unsplash.com/photo-1721332149267-ef9b10eaacd9?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="img"
+            width={400}
+            height={400}
+          />
+        </div>
+        {/* <div className="carousel__item">
+          <Image
+            src="https://images.unsplash.com/photo-1724781598192-19bed9bffab0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="img"
+            width={400}
+            height={400}
+          />
+        </div> */}
       </div>
       <div className="controls">
         <Button className="prev" onClick={handlePrev}>

@@ -17,7 +17,11 @@ module.exports = withPWA({
     includePaths: [path.join(__dirname, "styles")]
   },
   images: {
-    domains: ["career-utility.dedicateddevelopers.us"]
+    domains: [
+      "career-utility.dedicateddevelopers.us",
+      "images.unsplash.com",
+      "plus.unsplash.com"
+    ]
   },
   swcMinify: true,
   compress: true,
