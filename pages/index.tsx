@@ -1,5 +1,6 @@
 import AboutSection from "@/components/HeroSection/AboutSection";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import MyProjects from "@/components/HeroSection/MyProjects";
 import WorkExperience from "@/components/HeroSection/WorkExperience";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import { GsapAnimationStyled } from "@/themes/_gsap_utils";
@@ -16,15 +17,14 @@ export default function Home() {
 
     mm.add("(min-width: 1200px)", () => {
       const sections = gsap.utils.toArray(".cmn_sec");
+
       sections.forEach((elem: any, index: number) => {
         setTimeout(() => {
           gsap.timeline({
             scrollTrigger: {
               trigger: elem,
-              // pin: true,
               start: "top bottom",
               end: () => "bottom bottom",
-              // markers: true,
               scrub: 1,
               onUpdate: (self) => {
                 if (self.progress === 1) {
@@ -104,6 +104,11 @@ export default function Home() {
           <WorkExperience />
         </Box>
       </GsapAnimationStyled>
+      {/* <GsapAnimationStyled minHeight={`${height[3]}px`} id="service"> */}
+      {/* <Box className="cmn_sec cmn_sec1"> */}
+      <MyProjects />
+      {/* </Box> */}
+      {/* </GsapAnimationStyled> */}
     </Wrapper>
   );
 }

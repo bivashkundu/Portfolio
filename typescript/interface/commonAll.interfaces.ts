@@ -10,7 +10,7 @@ export interface PageHeadingProps extends BoxProps {
   shortTitle?: string;
   heading: string;
   primaryText: string;
-  endText: string;
+  endText?: string;
   titile: string;
 }
 

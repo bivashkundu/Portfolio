@@ -12,5 +12,6 @@ export default {
   aboutbg: "/assets/images/aboutbg.png",
   heroBg: "/assets/images/heroBg.png",
   workBg: "/assets/images/workBg.png",
+  projectBg: "/assets/images/projectBg.png",
   ofcIcon: "/assets/images/ofcIcon.png"
 };

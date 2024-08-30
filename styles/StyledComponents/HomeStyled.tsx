@@ -253,3 +253,26 @@ export const WorkExperienceWrap = styled(Box)`
     }
   }
 `;
+
+export const MyProjectsWrap = styled(Box)`
+  background: url(${assest.projectBg}) no-repeat;
+  position: relative;
+  z-index: 22 !important;
+
+  .container {
+    display: flex;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* .panel {
+    width: 100vw;
+    height: 100vh;
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  } */
+`;

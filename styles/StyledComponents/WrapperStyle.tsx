@@ -152,11 +152,13 @@ export const WrapperStyle = styled(Box)`
     align-items: center;
     padding: 100px 0;
     min-height: 100vh;
+    background-size: cover;
   }
 
   .text-primary {
     color: #41b362;
   }
+
   .text-secondary {
     color: #ffe600;
   }
