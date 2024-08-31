@@ -135,9 +135,27 @@ const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
       if (fadeInRightElement) {
         gsap.fromTo(
           fadeInRightElement,
-          { opacity: 0, x: 100 },
-          { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
+          { opacity: 0, x: 100, rotationY: 0 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1.5,
+            ease: "power2.out",
+            rotationY: 180,
+            onComplete: () => {
+              gsap.to(fadeInRightElement, {
+                rotationY: 0,
+                duration: 1.5,
+                ease: "power2.out"
+              });
+            }
+          }
         );
+        // gsap.fromTo(
+        //   fadeInRightElement,
+        //   { opacity: 0, x: 100 },
+        //   { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
+        // );
       }
 
       if (fadeInUpElement) {

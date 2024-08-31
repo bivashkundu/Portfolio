@@ -169,12 +169,52 @@ export const AboutSectionWrap = styled(Box)`
     figure {
       max-width: 440px;
       height: 530px;
+      margin: 0 auto;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: right;
+      }
+    }
+
+    .get-touch {
+      background: linear-gradient(180deg, #2e2c1f 0%, #1b1b19 100%);
+      border-radius: 10px;
+      padding: 20px 40px;
+      width: 100%;
+      max-width: 80%;
+      margin: 50px auto 0;
+
+      i {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 50%;
+        background-color: ${primaryColors.secondary};
+
+        svg {
+          color: ${primaryColors.color282828};
+          font-size: 20px;
+        }
+      }
+
+      .touch-right {
+        width: calc(100% - 40px);
+        padding-left: 15px;
+
+        &:hover {
+          a {
+            color: ${primaryColors.primary};
+          }
+        }
+
+        a {
+          color: ${primaryColors.white};
+        }
       }
     }
   }

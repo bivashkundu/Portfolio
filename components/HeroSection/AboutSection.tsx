@@ -7,10 +7,21 @@ import {
   solidColors
 } from "@/json/mock/common.mock";
 import { AboutSectionWrap } from "@/styles/StyledComponents/HomeStyled";
-import { Box, BoxProps, Container, Grid, Typography } from "@mui/material";
+import CallIcon from "@mui/icons-material/Call";
+import MailIcon from "@mui/icons-material/Mail";
+import {
+  Box,
+  BoxProps,
+  Container,
+  Grid,
+  InputLabel,
+  Stack,
+  Typography
+} from "@mui/material";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect } from "react";
 import TechCard from "../TechCard/TechCard";
 
@@ -45,6 +56,44 @@ const AboutSection: React.FC<BoxProps> = ({ ...props }) => {
                   alt="thumb"
                 />
               </figure>
+              <Box className="get-touch">
+                <Grid container spacing={2}>
+                  <Grid item lg={7}>
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      flexWrap="wrap"
+                      className="touct-item"
+                    >
+                      <i>
+                        <MailIcon />
+                      </i>
+                      <Box className="touch-right">
+                        <InputLabel>Email</InputLabel>
+                        <Link href="mailto:myself.bivash@gmail.com">
+                          myself.bivash@gmail.com
+                        </Link>
+                      </Box>
+                    </Stack>
+                  </Grid>
+                  <Grid item lg={5}>
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      flexWrap="wrap"
+                      className="touct-item"
+                    >
+                      <i>
+                        <CallIcon />
+                      </i>
+                      <Box className="touch-right">
+                        <InputLabel>Make a Call</InputLabel>
+                        <Link href="tel:+918910120822">+91 8910120822</Link>
+                      </Box>
+                    </Stack>
+                  </Grid>
+                </Grid>
+              </Box>
             </Box>
           </Grid>
           <Grid item lg={5.5}>
