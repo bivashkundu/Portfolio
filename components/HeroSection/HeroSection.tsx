@@ -4,13 +4,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
 /* eslint-disable prefer-exponentiation-operator */
+import { MousePosition } from "@/interface/commonAll.interfaces";
 import assest from "@/json/assest";
+import { sociallinks } from "@/json/mock/common.mock";
 import { HeroSectionWrap } from "@/styles/StyledComponents/HomeStyled";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import {
   Box,
@@ -26,17 +25,6 @@ import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-
-interface MousePosition {
-  x: number;
-  y: number;
-}
-
-export const sociallinks = [
-  { icon: <LinkedInIcon />, href: "/" },
-  { icon: <FacebookIcon />, href: "/" },
-  { icon: <InstagramIcon />, href: "/" }
-];
 
 const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -135,27 +123,9 @@ const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
       if (fadeInRightElement) {
         gsap.fromTo(
           fadeInRightElement,
-          { opacity: 0, x: 100, rotationY: 0 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1.5,
-            ease: "power2.out",
-            rotationY: 180,
-            onComplete: () => {
-              gsap.to(fadeInRightElement, {
-                rotationY: 0,
-                duration: 1.5,
-                ease: "power2.out"
-              });
-            }
-          }
+          { opacity: 0, x: 100 },
+          { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
         );
-        // gsap.fromTo(
-        //   fadeInRightElement,
-        //   { opacity: 0, x: 100 },
-        //   { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
-        // );
       }
 
       if (fadeInUpElement) {

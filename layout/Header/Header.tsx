@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unescaped-entities */
-import { sociallinks } from "@/components/HeroSection/HeroSection";
 import assest from "@/json/assest";
+import { sociallinks } from "@/json/mock/common.mock";
 import {
   HeaderDrawer,
   HeaderWrap

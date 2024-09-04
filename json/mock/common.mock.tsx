@@ -2,6 +2,9 @@ import {
   ExperienceCardProps,
   TechCardPaperProps
 } from "@/interface/commonAll.interfaces";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export const demotechCardList: TechCardPaperProps[] = [
   {
@@ -65,4 +68,10 @@ export const experienceData: ExperienceCardProps[] = [
     name: "Junior Web Designer",
     address: "Max bridge solutions (Kolkata,india)"
   }
+];
+
+export const sociallinks = [
+  { icon: <LinkedInIcon />, href: "/" },
+  { icon: <FacebookIcon />, href: "/" },
+  { icon: <InstagramIcon />, href: "/" }
 ];

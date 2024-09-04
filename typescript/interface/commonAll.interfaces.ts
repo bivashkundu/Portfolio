@@ -20,3 +20,8 @@ export interface ExperienceCardProps {
   name: string;
   address: string;
 }
+
+export interface MousePosition {
+  x: number;
+  y: number;
+}
