@@ -25,3 +25,7 @@ export interface MousePosition {
   x: number;
   y: number;
 }
+
+export interface TypewriterProps {
+  textArray: string[];
+}

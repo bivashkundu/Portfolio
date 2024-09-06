@@ -1,5 +1,5 @@
 import { MyProjectsWrap } from "@/styles/StyledComponents/HomeStyled";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 // import gsap from "gsap";
 // import ScrollTrigger from "gsap/dist/ScrollTrigger";
 // import React, { useLayoutEffect, useRef } from "react";
@@ -39,6 +39,7 @@ const MyProjects: React.FC = () => {
           primaryText=" Projects"
           titile="Must explain to you how all this mistaken idea of denouncing pleasure born and give you a complete account the system"
         />
+        <Box className="project-section">dscdcd</Box>
       </Container>
       {/* <div ref={slider} className="container">
         <div className="description panel blue">

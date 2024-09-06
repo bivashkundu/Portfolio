@@ -149,7 +149,7 @@ const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
               <Typography variant="h1">
                 <span>Hello,</span> I am Bivash.
               </Typography>
-              <Typography variant="h3">HTML Developer</Typography>
+              <Typography variant="h3">Html Developer</Typography>
               <Typography variant="body1">
                 I am Working With UI/UX, HTML, CSS, SCSS, J-QUERY, Bootstrap,
                 JAVASCRIPT, REACT.JS, NEXT.JS
