@@ -25,6 +25,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import Typewriter from "typewriter-effect";
 
 const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -149,7 +150,15 @@ const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
               <Typography variant="h1">
                 <span>Hello,</span> I am Bivash.
               </Typography>
-              <Typography variant="h3">Html Developer</Typography>
+              <Typography variant="h3">
+                <Typewriter
+                  options={{
+                    strings: ["HTML Developer"],
+                    autoStart: true,
+                    loop: true
+                  }}
+                />
+              </Typography>
               <Typography variant="body1">
                 I am Working With UI/UX, HTML, CSS, SCSS, J-QUERY, Bootstrap,
                 JAVASCRIPT, REACT.JS, NEXT.JS

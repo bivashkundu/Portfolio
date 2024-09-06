@@ -24,7 +24,6 @@ export const HeroSectionWrap = styled(Box)`
       font-size: 40px;
       letter-spacing: 2px;
       margin-bottom: 15px;
-      min-height: 60px;
     }
 
     .btm-stack {
