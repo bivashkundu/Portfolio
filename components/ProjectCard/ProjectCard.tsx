@@ -1,13 +1,22 @@
+import { MyProjectProps } from "@/interface/commonAll.interfaces";
 import { ProjectCardWrap } from "@/styles/StyledComponents/ProjectCardStyled";
-// import Image from "next/image";
+import { Typography } from "@mui/material";
+import Image from "next/image";
 import React from "react";
 
-const ProjectCard: React.FC = () => {
+const ProjectCard: React.FC<MyProjectProps> = ({
+  image,
+  title,
+  name,
+  ...props
+}) => {
   return (
-    <ProjectCardWrap>
+    <ProjectCardWrap {...props}>
       <figure>
-        {/* <Image src={} width={} height={} alt="project-image" /> */}
+        <Image src={image} width={400} height={300} alt="project-image" />
       </figure>
+      <Typography variant="h4">{title}</Typography>
+      <Typography variant="body2">{name}</Typography>
     </ProjectCardWrap>
   );
 };

@@ -13,5 +13,6 @@ export default {
   heroBg: "/assets/images/heroBg.png",
   workBg: "/assets/images/workBg.png",
   projectBg: "/assets/images/projectBg.png",
-  ofcIcon: "/assets/images/ofcIcon.png"
+  ofcIcon: "/assets/images/ofcIcon.png",
+  projectIntel: "/assets/images/project-intel.png"
 };

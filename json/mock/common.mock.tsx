@@ -1,10 +1,12 @@
 import {
   ExperienceCardProps,
+  MyProjectProps,
   TechCardPaperProps
 } from "@/interface/commonAll.interfaces";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import assest from "../assest";
 
 export const demotechCardList: TechCardPaperProps[] = [
   {
@@ -74,4 +76,12 @@ export const sociallinks = [
   { icon: <LinkedInIcon />, href: "/" },
   { icon: <FacebookIcon />, href: "/" },
   { icon: <InstagramIcon />, href: "/" }
+];
+
+export const myworkData: MyProjectProps[] = [
+  {
+    image: assest.projectIntel,
+    title: "Project",
+    name: "Name Of The Project"
+  }
 ];

@@ -1,10 +1,13 @@
+/* eslint-disable react/no-array-index-key */
 import { MyProjectsWrap } from "@/styles/StyledComponents/HomeStyled";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 // import gsap from "gsap";
 // import ScrollTrigger from "gsap/dist/ScrollTrigger";
 // import React, { useLayoutEffect, useRef } from "react";
+import { myworkData } from "@/json/mock/common.mock";
 import React from "react";
 import PageHeading from "../PageHeading/PageHeading";
+import ProjectCard from "../ProjectCard/ProjectCard";
 
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -39,7 +42,15 @@ const MyProjects: React.FC = () => {
           primaryText=" Projects"
           titile="Must explain to you how all this mistaken idea of denouncing pleasure born and give you a complete account the system"
         />
-        <Box className="project-section">dscdcd</Box>
+        <Box className="project-section">
+          <Grid container spacing={3}>
+            {myworkData.map((__item, index) => (
+              <Grid item lg={4} key={index}>
+                <ProjectCard {...__item} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
       </Container>
       {/* <div ref={slider} className="container">
         <div className="description panel blue">

@@ -1,4 +1,4 @@
-import { BoxProps } from "@mui/material";
+import { BoxProps, PaperProps } from "@mui/material";
 
 export interface TechCardPaperProps extends BoxProps {
   count: number;
@@ -28,4 +28,10 @@ export interface MousePosition {
 
 export interface TypewriterProps {
   textArray: string[];
+}
+
+export interface MyProjectProps extends PaperProps {
+  image: string;
+  title: string;
+  name: string;
 }
