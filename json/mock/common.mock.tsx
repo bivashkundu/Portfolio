@@ -83,5 +83,30 @@ export const myworkData: MyProjectProps[] = [
     image: assest.projectIntel,
     title: "Project",
     name: "Name Of The Project"
+  },
+  {
+    image: assest.projectShopdrop,
+    title: "Project",
+    name: "Name Of The Project"
+  },
+  {
+    image: assest.projectPrivy,
+    title: "Project",
+    name: "Name Of The Project"
+  },
+  {
+    image: assest.projectEasternrailway,
+    title: "Project",
+    name: "Name Of The Project"
+  },
+  {
+    image: assest.projectIntel,
+    title: "Project",
+    name: "Name Of The Project"
+  },
+  {
+    image: assest.projectIntel,
+    title: "Project",
+    name: "Name Of The Project"
   }
 ];

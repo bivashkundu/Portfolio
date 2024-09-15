@@ -14,5 +14,8 @@ export default {
   workBg: "/assets/images/workBg.png",
   projectBg: "/assets/images/projectBg.png",
   ofcIcon: "/assets/images/ofcIcon.png",
-  projectIntel: "/assets/images/project-intel.png"
+  projectIntel: "/assets/images/project-intel.png",
+  projectShopdrop: "/assets/images/project-shopdrop.png",
+  projectPrivy: "/assets/images/project-privy.png",
+  projectEasternrailway: "/assets/images/project-easternrailway.png"
 };
