@@ -46,7 +46,8 @@ export const primaryColors = {
   color282828: "#282828",
   color494949: "#494949",
   color111111: "#111111",
-  color232221: "#232221"
+  color232221: "#232221",
+  color373737: "#373737"
 };
 
 export const pallete = (mode: PaletteMode): PaletteOptions => {

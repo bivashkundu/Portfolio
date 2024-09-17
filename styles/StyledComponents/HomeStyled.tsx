@@ -346,3 +346,46 @@ export const MyProjectsWrap = styled(Box)`
     margin-top: 50px;
   }
 `;
+
+export const ContactSection = styled(Box)`
+  background: url(${assest.workBg}) no-repeat;
+
+  .about-title {
+    margin-bottom: 40px;
+
+    h2 {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 44px;
+
+      .text-secondary {
+        display: block;
+        color: ${primaryColors.secondary};
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+    }
+
+    p {
+      color: ${primaryColors.secondaryFont};
+      font-weight: 500;
+      max-width: 600px;
+      width: 100%;
+    }
+  }
+
+  .contact-form {
+    .form-grp {
+      .MuiInputLabel-root {
+        font-size: 16px;
+        color: ${primaryColors.white};
+        margin-bottom: 8px;
+
+        span {
+          color: ${primaryColors.secondary};
+        }
+      }
+    }
+  }
+`;

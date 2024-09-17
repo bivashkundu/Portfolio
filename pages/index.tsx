@@ -110,9 +110,11 @@ export default function Home() {
           <MyProjects />
         </Box>
       </GsapAnimationStyled>
-      <Box className="cmn_sec cmn_sec1" id="contact">
-        <Contact />
-      </Box>
+      <GsapAnimationStyled minHeight={`${height[4]}px`} id="contact">
+        <Box className="cmn_sec cmn_sec1">
+          <Contact />
+        </Box>
+      </GsapAnimationStyled>
     </Wrapper>
   );
 }
