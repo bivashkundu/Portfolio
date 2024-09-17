@@ -19,7 +19,6 @@ export const primaryColors = {
   black: "#000",
   bodyColor: "#F4F6F8",
   mainFontColor: "#585858",
-  textPrimaryColor: "#131313",
   borderprimary: "#DBE0E8",
   warning_color: "#FFEFD7",
   success_color: "#D4FEFF",
@@ -46,7 +45,8 @@ export const primaryColors = {
   color1F1E1D: "#1F1E1D",
   color282828: "#282828",
   color494949: "#494949",
-  color111111: "#111111"
+  color111111: "#111111",
+  color232221: "#232221"
 };
 
 export const pallete = (mode: PaletteMode): PaletteOptions => {

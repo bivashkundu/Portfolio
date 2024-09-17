@@ -17,5 +17,12 @@ export default {
   projectIntel: "/assets/images/project-intel.png",
   projectShopdrop: "/assets/images/project-shopdrop.png",
   projectPrivy: "/assets/images/project-privy.png",
-  projectEasternrailway: "/assets/images/project-easternrailway.png"
+  projectEasternrailway: "/assets/images/project-easternrailway.png",
+  projectLiefermarsadmin: "/assets/images/project-liefermarsadmin.png",
+  projectQuotegreen: "/assets/images/project-quotegreen.png",
+  projectShowcode: "/assets/images/project-showcode.png",
+  projectGanesh: "/assets/images/project-ganesh.png",
+  projectJohnson: "/assets/images/project-johnson.jpg",
+  projectBullshift: "/assets/images/project-bullshift.jpg",
+  projectPolpick: "/assets/images/project-polpick.jpg"
 };

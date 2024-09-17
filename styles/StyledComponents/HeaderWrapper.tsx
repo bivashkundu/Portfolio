@@ -11,6 +11,7 @@ export const HeaderWrap = styled(Box)`
   .custom-appbar {
     background: transparent;
     padding: 0;
+    transition: all 0.7s;
 
     .header-menu {
       display: flex;
@@ -97,6 +98,10 @@ export const HeaderWrap = styled(Box)`
       }
     }
   }
+
+  .scrolled {
+    background-color: ${primaryColors.primary_600};
+  }
 `;
 
 export const HeaderDrawer = styled(Drawer)`
@@ -129,6 +134,10 @@ export const HeaderDrawer = styled(Drawer)`
           color: ${primaryColors.textDisabled};
         }
 
+        .mail-link {
+          margin-bottom: 15px;
+        }
+
         .social-links {
           display: flex;
           align-items: center;
@@ -148,18 +157,41 @@ export const HeaderDrawer = styled(Drawer)`
               height: 40px;
               background-color: ${primaryColors.white};
               border-radius: 50%;
-              transition: 0.3s all ease-in-out 0s;
-              -webkit-transition: 0.3s all ease-in-out 0s;
-              -moz-transition: 0.3s all ease-in-out 0s;
+              position: relative;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: ${primaryColors.primary};
+                -webkit-transform: scale(0);
+                -ms-transform: scale(0);
+                transform: scale(0);
+                -webkit-transition: 0.3s;
+                -o-transition: 0.3s;
+                transition: 0.3s;
+                border-radius: 50%;
+                z-index: -1;
+              }
 
               svg {
                 width: 20px;
                 height: auto;
-                color: ${primaryColors.textPrimaryColor};
+                color: ${primaryColors.primary_600};
+                position: relative;
+                z-index: 2;
               }
 
               &:hover {
-                background-color: ${primaryColors.primary};
+                &::before {
+                  -webkit-transform: scale(1.1);
+                  -ms-transform: scale(1.1);
+                  transform: scale(1.1);
+                  z-index: 1;
+                }
               }
             }
           }

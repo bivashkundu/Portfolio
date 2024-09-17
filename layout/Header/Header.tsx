@@ -27,14 +27,13 @@ const navItems = [
   { name: "Home", link: "#home" },
   { name: "About", link: "#about" },
   { name: "Resume", link: "#resume" },
-  { name: "Service", link: "#service" },
   { name: "Project", link: "#project" },
   { name: "Contact", link: "#contact" }
 ];
 
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   const handleDrawerClick = () => {
     setOpenDrawer(!openDrawer);
@@ -42,42 +41,25 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map((item) =>
-        document.querySelector(item.link)
-      );
-      const options = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.6
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      }, options);
-
-      sections.forEach((section) => {
+      let currentSection = "";
+      navItems.forEach((item) => {
+        const section = document.querySelector(item.link);
         if (section) {
-          observer.observe(section);
+          const sectionTop = section.getBoundingClientRect().top;
+          const sectionOffset = 100;
+
+          if (sectionTop <= sectionOffset) {
+            currentSection = section.id;
+          }
         }
       });
-
-      return () => {
-        sections.forEach((section) => {
-          if (section) {
-            observer.unobserve(section);
-          }
-        });
-      };
+      setActiveSection(currentSection);
     };
 
-    handleScroll();
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      setActiveSection("");
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -95,9 +77,31 @@ const Header = () => {
     }
   };
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <HeaderWrap>
-      <AppBar component="nav" elevation={0} className="custom-appbar">
+      <AppBar
+        component="nav"
+        elevation={0}
+        className={`custom-appbar ${scrolled ? "scrolled" : ""}`}
+      >
         <Container fixed maxWidth="xl">
           <Grid container alignItems="center">
             <Grid item xs={6} lg={2}>
@@ -167,9 +171,10 @@ const Header = () => {
             chat.
           </Typography>
           <Stack className="btm-media-sec">
-            <Link href="mailto:myself.bivash@gmail.com">
+            <Link href="mailto:myself.bivash@gmail.com" className="mail-link">
               myself.bivash@gmail.com
             </Link>
+            <Link href="tel:+918910120822">8910120822</Link>
             <List className="social-links" disablePadding>
               {sociallinks.map((data, index) => (
                 <ListItem key={index} disablePadding>

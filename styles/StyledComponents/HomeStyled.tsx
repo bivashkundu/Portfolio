@@ -47,15 +47,41 @@ export const HeroSectionWrap = styled(Box)`
             height: 40px;
             background-color: ${primaryColors.white};
             border-radius: 50%;
+            position: relative;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: ${primaryColors.primary};
+              -webkit-transform: scale(0);
+              -ms-transform: scale(0);
+              transform: scale(0);
+              -webkit-transition: 0.3s;
+              -o-transition: 0.3s;
+              transition: 0.3s;
+              border-radius: 50%;
+              z-index: -1;
+            }
 
             svg {
               width: 20px;
               height: auto;
-              color: ${primaryColors.textPrimaryColor};
+              color: ${primaryColors.primary_600};
+              position: relative;
+              z-index: 2;
             }
 
             &:hover {
-              background-color: ${primaryColors.primary};
+              &::before {
+                -webkit-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                transform: scale(1.1);
+                z-index: 1;
+              }
             }
           }
         }
@@ -120,7 +146,7 @@ export const HeroSectionWrap = styled(Box)`
     p {
       font-size: 18px;
       font-weight: 600;
-      color: ${primaryColors.textPrimaryColor};
+      color: ${primaryColors.primary_600};
       line-height: 1.2;
     }
 
@@ -299,12 +325,12 @@ export const MyProjectsWrap = styled(Box)`
   position: relative;
   z-index: 22 !important;
 
-  .container {
+  /* .container {
     display: flex;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-  }
+  } */
 
   /* .panel {
     width: 100vw;
@@ -315,4 +341,8 @@ export const MyProjectsWrap = styled(Box)`
     align-items: center;
     font-size: 2rem;
   } */
+
+  .project-section {
+    margin-top: 50px;
+  }
 `;

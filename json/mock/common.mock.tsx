@@ -80,33 +80,58 @@ export const sociallinks = [
 
 export const myworkData: MyProjectProps[] = [
   {
-    image: assest.projectIntel,
-    title: "Project",
-    name: "Name Of The Project"
+    image: assest.projectEasternrailway,
+    title: "Login Sample",
+    name: "Eastern Railway Environment & Housekeeping"
   },
   {
-    image: assest.projectShopdrop,
-    title: "Project",
-    name: "Name Of The Project"
+    image: assest.projectPolpick,
+    title: "Product Design",
+    name: "Polpick"
+  },
+  {
+    image: assest.projectIntel,
+    title: "Product Design",
+    name: "Intel Markets"
+  },
+  {
+    image: assest.projectJohnson,
+    title: "Product Design",
+    name: "Johnson & Co."
   },
   {
     image: assest.projectPrivy,
-    title: "Project",
-    name: "Name Of The Project"
+    title: "Product Design",
+    name: "Privy Reviews"
   },
   {
-    image: assest.projectEasternrailway,
-    title: "Project",
-    name: "Name Of The Project"
+    image: assest.projectShowcode,
+    title: "Login Sample",
+    name: "My Show Code"
   },
   {
-    image: assest.projectIntel,
-    title: "Project",
-    name: "Name Of The Project"
+    image: assest.projectBullshift,
+    title: "Product Design",
+    name: "Bullshift 2020"
   },
   {
-    image: assest.projectIntel,
-    title: "Project",
-    name: "Name Of The Project"
+    image: assest.projectLiefermarsadmin,
+    title: "Admin Panel",
+    name: "Liefermars"
+  },
+  {
+    image: assest.projectQuotegreen,
+    title: "Admin Panel",
+    name: "Quote Green"
+  },
+  {
+    image: assest.projectGanesh,
+    title: "Product Design",
+    name: "Ganesh Grains"
+  },
+  {
+    image: assest.projectShopdrop,
+    title: "Product Design",
+    name: "Shop Drop"
   }
 ];

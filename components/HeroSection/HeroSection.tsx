@@ -153,7 +153,7 @@ const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
               <Typography variant="h3">
                 <Typewriter
                   options={{
-                    strings: ["HTML Developer"],
+                    strings: ["HTML Developer", "Professional Coder"],
                     autoStart: true,
                     loop: true
                   }}

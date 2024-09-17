@@ -28,7 +28,7 @@ const styledDatepicker = {
       border: "none",
       fontSize: "14px",
       fontWeight: "400",
-      color: `${primaryColors.textPrimaryColor}`,
+      color: `${primaryColors.primary_600}`,
       padding: "17px 10px 17px 20px"
     },
     [`svg`]: {

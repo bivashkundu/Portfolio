@@ -44,7 +44,7 @@ const InputWrap = styled(TextField as any)`
     input[type="datetime-local"],
     input[type="color"],
     textarea {
-      color: ${primaryColors?.textPrimaryColor};
+      color: ${primaryColors?.primary_600};
       border: 0;
       padding-left: 0;
       &::placeholder {
@@ -99,15 +99,15 @@ const InputWrap = styled(TextField as any)`
     }
     button {
       background-color: transparent;
-      color: var(--textPrimaryColor);
+      color: ${primaryColors?.primary_600};
       padding: 0;
       &:focus {
         background-color: transparent;
-        color: var(--textPrimaryColor);
+        color: ${primaryColors?.primary_600};
       }
       &:hover {
         background-color: transparent;
-        color: var(--textPrimaryColor);
+        color: ${primaryColors?.primary_600};
       }
       img {
         position: static !important;

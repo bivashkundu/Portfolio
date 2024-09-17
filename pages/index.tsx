@@ -1,4 +1,5 @@
 import AboutSection from "@/components/HeroSection/AboutSection";
+import Contact from "@/components/HeroSection/Contact";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import MyProjects from "@/components/HeroSection/MyProjects";
 import WorkExperience from "@/components/HeroSection/WorkExperience";
@@ -104,11 +105,14 @@ export default function Home() {
           <WorkExperience />
         </Box>
       </GsapAnimationStyled>
-      {/* <GsapAnimationStyled minHeight={`${height[3]}px`} id="service"> */}
-      {/* <Box className="cmn_sec cmn_sec1"> */}
-      <MyProjects />
-      {/* </Box> */}
-      {/* </GsapAnimationStyled> */}
+      <GsapAnimationStyled minHeight={`${height[3]}px`} id="project">
+        <Box className="cmn_sec cmn_sec1">
+          <MyProjects />
+        </Box>
+      </GsapAnimationStyled>
+      <Box className="cmn_sec cmn_sec1" id="contact">
+        <Contact />
+      </Box>
     </Wrapper>
   );
 }
