@@ -24,5 +24,9 @@ export default {
   projectGanesh: "/assets/images/project-ganesh.png",
   projectJohnson: "/assets/images/project-johnson.jpg",
   projectBullshift: "/assets/images/project-bullshift.jpg",
-  projectPolpick: "/assets/images/project-polpick.jpg"
+  projectPolpick: "/assets/images/project-polpick.jpg",
+  iconPhone: "/assets/images/phone-call-icon.svg",
+  iconMail: "/assets/images/mail-icon.svg",
+  iconSkype: "/assets/images/skype-black-icon.svg",
+  iconMaps: "/assets/images/maps-icon.svg"
 };

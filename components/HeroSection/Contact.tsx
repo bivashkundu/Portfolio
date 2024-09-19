@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import assest from "@/json/assest";
 import { ContactSection } from "@/styles/StyledComponents/HomeStyled";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -11,9 +12,9 @@ import {
   ListItem,
   Typography
 } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-// import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-// import EmailIcon from '@mui/icons-material/Email';
 
 const Contact: React.FC = () => {
   return (
@@ -98,7 +99,24 @@ const Contact: React.FC = () => {
           <Grid item lg={4}>
             <Box className="contact-right">
               <List>
-                <ListItem>{/* <i></i> */}</ListItem>
+                <ListItem>
+                  <i>
+                    <Image
+                      src={assest.iconPhone}
+                      width={24}
+                      height={24}
+                      alt="call-icon"
+                    />
+                  </i>
+                  <Link href="tel:+918910120822">
+                    <Typography variant="caption" className="label">
+                      Phone Number
+                    </Typography>
+                    <Typography variant="caption" className="label">
+                      +91 8910120822
+                    </Typography>
+                  </Link>
+                </ListItem>
               </List>
             </Box>
           </Grid>
