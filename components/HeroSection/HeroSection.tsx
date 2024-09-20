@@ -179,7 +179,13 @@ const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
                 <List className="social-links">
                   {sociallinks.map((data, index) => (
                     <ListItem key={index}>
-                      <Link href={data.href}>{data.icon}</Link>
+                      <Link
+                        rel="noreferrer"
+                        aria-label="testlabel"
+                        href={data.href}
+                      >
+                        {data.icon}
+                      </Link>
                     </ListItem>
                   ))}
                 </List>

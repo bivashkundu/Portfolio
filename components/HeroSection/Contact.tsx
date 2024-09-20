@@ -108,7 +108,11 @@ const Contact: React.FC = () => {
                       alt="call-icon"
                     />
                   </i>
-                  <Link href="tel:+918910120822">
+                  <Link
+                    rel="noreferrer"
+                    aria-label="testlabel"
+                    href="tel:+918910120822"
+                  >
                     <Typography variant="caption" className="label">
                       Phone Number
                     </Typography>

@@ -71,7 +71,11 @@ const AboutSection: React.FC<BoxProps> = ({ ...props }) => {
                       </i>
                       <Box className="touch-right">
                         <InputLabel>Email</InputLabel>
-                        <Link href="mailto:myself.bivash@gmail.com">
+                        <Link
+                          rel="noreferrer"
+                          aria-label="testlabel"
+                          href="mailto:myself.bivash@gmail.com"
+                        >
                           myself.bivash@gmail.com
                         </Link>
                       </Box>
@@ -89,7 +93,13 @@ const AboutSection: React.FC<BoxProps> = ({ ...props }) => {
                       </i>
                       <Box className="touch-right">
                         <InputLabel>Make a Call</InputLabel>
-                        <Link href="tel:+918910120822">+91 8910120822</Link>
+                        <Link
+                          rel="noreferrer"
+                          aria-label="testlabel"
+                          href="tel:+918910120822"
+                        >
+                          +91 8910120822
+                        </Link>
                       </Box>
                     </Stack>
                   </Grid>

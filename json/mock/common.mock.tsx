@@ -58,7 +58,7 @@ export const experienceData: ExperienceCardProps[] = [
     year: "2000 - 2000",
     present: true,
     name: "HTML Developer",
-    address: "Webskitters Technology Solutions (Kolkata,india)"
+    address: "testlabel Technology Solutions (Kolkata,india)"
   },
   {
     year: "2000 - 2000",

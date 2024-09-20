@@ -105,7 +105,7 @@ const Header = () => {
         <Container fixed maxWidth="xl">
           <Grid container alignItems="center">
             <Grid item xs={6} lg={2}>
-              <Link href="/">
+              <Link rel="noreferrer" aria-label="testlabel" href="/">
                 <Image
                   src={assest.logo_img}
                   width={200}
@@ -171,14 +171,31 @@ const Header = () => {
             chat.
           </Typography>
           <Stack className="btm-media-sec">
-            <Link href="mailto:myself.bivash@gmail.com" className="mail-link">
+            <Link
+              rel="noreferrer"
+              aria-label="testlabel"
+              href="mailto:myself.bivash@gmail.com"
+              className="mail-link"
+            >
               myself.bivash@gmail.com
             </Link>
-            <Link href="tel:+918910120822">8910120822</Link>
+            <Link
+              rel="noreferrer"
+              aria-label="testlabel"
+              href="tel:+918910120822"
+            >
+              8910120822
+            </Link>
             <List className="social-links" disablePadding>
               {sociallinks.map((data, index) => (
                 <ListItem key={index} disablePadding>
-                  <Link href={data.href}>{data.icon}</Link>
+                  <Link
+                    rel="noreferrer"
+                    aria-label="testlabel"
+                    href={data.href}
+                  >
+                    {data.icon}
+                  </Link>
                 </ListItem>
               ))}
             </List>
