@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const [height, setHeight] = useState<any>([]);
+
   useEffect(() => {
     const mm = gsap.matchMedia();
 
@@ -55,8 +57,6 @@ export default function Home() {
       });
     });
   }, []);
-
-  const [height, setHeight] = useState<any>([]);
 
   useEffect(() => {
     const updateSectionHeights = () => {

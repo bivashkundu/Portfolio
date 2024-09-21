@@ -58,7 +58,7 @@ export const experienceData: ExperienceCardProps[] = [
     year: "2000 - 2000",
     present: true,
     name: "HTML Developer",
-    address: "testlabel Technology Solutions (Kolkata,india)"
+    address: "Webskitters Technology Solutions (Kolkata,india)"
   },
   {
     year: "2000 - 2000",
@@ -133,5 +133,32 @@ export const myworkData: MyProjectProps[] = [
     image: assest.projectShopdrop,
     title: "Product Design",
     name: "Shop Drop"
+  }
+];
+
+export const getInList = [
+  {
+    icon: assest.iconPhone,
+    inputLabel: "Phone Number",
+    caption: "+91 8910120822",
+    href: "tel:+918910120822"
+  },
+  {
+    icon: assest.iconMail,
+    inputLabel: "Phone Number",
+    caption: "+91 8910120822",
+    href: "tel:+918910120822"
+  },
+  {
+    icon: assest.iconSkype,
+    inputLabel: "Phone Number",
+    caption: "+91 8910120822",
+    href: "tel:+918910120822"
+  },
+  {
+    icon: assest.iconMaps,
+    inputLabel: "Phone Number",
+    caption: "+91 8910120822",
+    href: "tel:+918910120822"
   }
 ];
