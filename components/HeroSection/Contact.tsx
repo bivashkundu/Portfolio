@@ -1,5 +1,6 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unescaped-entities */
-import assest from "@/json/assest";
+import { getInList } from "@/json/mock/common.mock";
 import { ContactSection } from "@/styles/StyledComponents/HomeStyled";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
@@ -99,28 +100,30 @@ const Contact: React.FC = () => {
           <Grid item lg={4}>
             <Box className="contact-right">
               <List>
-                <ListItem>
-                  <i>
-                    <Image
-                      src={assest.iconPhone}
-                      width={24}
-                      height={24}
-                      alt="call-icon"
-                    />
-                  </i>
-                  <Link
-                    rel="noreferrer"
-                    aria-label="testlabel"
-                    href="tel:+918910120822"
-                  >
-                    <Typography variant="caption" className="label">
-                      Phone Number
-                    </Typography>
-                    <Typography variant="caption" className="label">
-                      +91 8910120822
-                    </Typography>
-                  </Link>
-                </ListItem>
+                {getInList.map((listData, idx) => (
+                  <ListItem key={idx}>
+                    <i>
+                      <Image
+                        src={listData.icon}
+                        width={24}
+                        height={24}
+                        alt="call-icon"
+                      />
+                    </i>
+                    <Link
+                      rel="noreferrer"
+                      aria-label="testlabel"
+                      href={listData.href}
+                    >
+                      <Typography variant="caption" className="label">
+                        {listData.inputLabel}
+                      </Typography>
+                      <Typography variant="caption" className="label">
+                        {listData.caption}
+                      </Typography>
+                    </Link>
+                  </ListItem>
+                ))}
               </List>
             </Box>
           </Grid>
