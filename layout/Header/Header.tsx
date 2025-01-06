@@ -34,6 +34,7 @@ const navItems = [
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
+  const [scrolled, setScrolled] = useState(false);
 
   const handleDrawerClick = () => {
     setOpenDrawer(!openDrawer);
@@ -76,8 +77,6 @@ const Header = () => {
       });
     }
   };
-
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {

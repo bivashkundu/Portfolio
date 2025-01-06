@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unescaped-entities */
 import { getInList } from "@/json/mock/common.mock";
 import { ContactSection } from "@/styles/StyledComponents/HomeStyled";
 import InputFieldCommon from "@/ui/CommonInput/CommonInput";
 import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   Box,
   Container,
@@ -16,8 +18,48 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+
+const Schema = yup.object().shape({
+  name: yup.string().required("Full Name is required"),
+  email: yup
+    .string()
+    .email("Invalid email address format")
+    .required("Email is required"),
+  phoneNumber: yup
+    .string()
+    .matches(/^\d{10}$/, "Invalid phone number format")
+    .required("Phone number is required"),
+  subject: yup.string().required("Subject is required")
+});
+
+type UserSubmitForm = {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  subject: string;
+};
 
 const Contact: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<UserSubmitForm>({
+    resolver: yupResolver(Schema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+      subject: ""
+    }
+  });
+
+  const onSubmit = (data: UserSubmitForm) => {
+    console.log("Form Data:", data);
+  };
+
   return (
     <ContactSection className="cmn-sec-class">
       <Container fixed maxWidth="xl">
@@ -35,14 +77,20 @@ const Contact: React.FC = () => {
               </Typography>
             </Box>
             <Box className="contact-form">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={4}>
                   <Grid item lg={6}>
                     <Box className="form-grp">
                       <InputLabel>
                         Full Name <span>*</span>
                       </InputLabel>
-                      <InputFieldCommon placeholder="Enter Full Name" />
+                      <InputFieldCommon
+                        placeholder="Enter Full Name"
+                        {...register("name")}
+                      />
+                      <Typography variant="caption" sx={{ color: "red" }}>
+                        {errors?.name?.message}
+                      </Typography>
                     </Box>
                   </Grid>
                   <Grid item lg={6}>
@@ -53,7 +101,11 @@ const Contact: React.FC = () => {
                       <InputFieldCommon
                         placeholder="Enter Email Address"
                         type="email"
+                        {...register("email")}
                       />
+                      <Typography variant="caption" sx={{ color: "red" }}>
+                        {errors?.email?.message}
+                      </Typography>
                     </Box>
                   </Grid>
                   <Grid item lg={6}>
@@ -61,7 +113,14 @@ const Contact: React.FC = () => {
                       <InputLabel>
                         Phone Number <span>*</span>
                       </InputLabel>
-                      <InputFieldCommon placeholder="Enter Phone Number" />
+                      <InputFieldCommon
+                        placeholder="Enter Phone Number"
+                        type="number"
+                        {...register("phoneNumber")}
+                      />
+                      <Typography variant="caption" sx={{ color: "red" }}>
+                        {errors?.phoneNumber?.message}
+                      </Typography>
                     </Box>
                   </Grid>
                   <Grid item lg={6}>
@@ -69,7 +128,13 @@ const Contact: React.FC = () => {
                       <InputLabel>
                         Subject <span>*</span>
                       </InputLabel>
-                      <InputFieldCommon placeholder="I want to contact for..." />
+                      <InputFieldCommon
+                        placeholder="I want to contact for..."
+                        {...register("subject")}
+                      />
+                      <Typography variant="caption" sx={{ color: "red" }}>
+                        {errors?.subject?.message}
+                      </Typography>
                     </Box>
                   </Grid>
                   <Grid item xs={12}>
@@ -89,6 +154,7 @@ const Contact: React.FC = () => {
                       variant="contained"
                       color="primary"
                       fullWidth
+                      type="submit"
                     >
                       Send Message
                     </CustomButtonPrimary>

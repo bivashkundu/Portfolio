@@ -387,5 +387,21 @@ export const ContactSection = styled(Box)`
         }
       }
     }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:focus {
+      transition: background-color 0s 600000s, color 0s 600000s !important;
+      -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    }
   }
 `;

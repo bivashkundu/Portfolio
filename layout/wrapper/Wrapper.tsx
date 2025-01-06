@@ -42,7 +42,7 @@ const Wrapper = (props: wrapperProps) => {
             : `${projectName} || ${favText}`
         }
         canonical=""
-        description=""
+        description="Porfolio Website"
         url=""
         image=""
       />
