@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unescaped-entities */
-import assest from "@/json/assest";
 import { sociallinks } from "@/json/mock/common.mock";
 import {
   HeaderDrawer,
@@ -19,7 +18,6 @@ import {
   Stack,
   Typography
 } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -105,12 +103,12 @@ const Header = () => {
           <Grid container alignItems="center">
             <Grid item xs={6} lg={2}>
               <Link rel="noreferrer" aria-label="testlabel" href="/">
-                <Image
+                {/* <Image
                   src={assest.logo_img}
                   width={200}
                   height={76}
                   alt="logo"
-                />
+                /> */}
               </Link>
             </Grid>
             <Grid item xs={6} lg={7.5}>

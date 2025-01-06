@@ -15,6 +15,7 @@ import {
   ListItem,
   Typography
 } from "@mui/material";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -56,8 +57,13 @@ const Contact: React.FC = () => {
     }
   });
 
-  const onSubmit = (data: UserSubmitForm) => {
-    console.log("Form Data:", data);
+  const onSubmit = async (data: UserSubmitForm) => {
+    try {
+      const response = await axios.post("/api/contact", data);
+      console.log("Form submitted successfully:", response.data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
