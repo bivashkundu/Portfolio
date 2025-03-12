@@ -15,7 +15,6 @@ import {
   ListItem,
   Typography
 } from "@mui/material";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -40,30 +39,45 @@ type UserSubmitForm = {
   email: string;
   phoneNumber: string;
   subject: string;
+  message?: string;
 };
 
 const Contact: React.FC = () => {
   const {
-    register,
     handleSubmit,
+    setValue,
     formState: { errors }
   } = useForm<UserSubmitForm>({
-    resolver: yupResolver(Schema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
-      subject: ""
-    }
+    resolver: yupResolver(Schema)
   });
 
   const onSubmit = async (data: UserSubmitForm) => {
     try {
-      const response = await axios.post("/api/contact", data);
-      console.log("Form submitted successfully:", response.data);
+      const response = await fetch("https://formspree.io/f/xvgkowno", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert("Your message has been sent successfully!");
+      } else {
+        alert("Error sending message. Please try again.");
+      }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error:", error);
+      alert("Something went wrong!");
     }
+  };
+  console.log("errors--------", errors);
+
+  const getInTouchFormHandler = (
+    _name: "name" | "email" | "message" | "phoneNumber" | "subject",
+    value: any
+  ) => {
+    setValue(_name, value);
   };
 
   return (
@@ -73,7 +87,7 @@ const Contact: React.FC = () => {
           <Grid item lg={8}>
             <Box className="about-title">
               <Typography variant="h2">
-                <span className="text-secondary">Contact</span>Get In{" "}
+                <span className="text-secondary">Contact</span> Get In{" "}
                 <span className="text-primary">Touch</span>
               </Typography>
               <Typography variant="body1">
@@ -92,7 +106,9 @@ const Contact: React.FC = () => {
                       </InputLabel>
                       <InputFieldCommon
                         placeholder="Enter Full Name"
-                        {...register("name")}
+                        onChange={(e: any) =>
+                          getInTouchFormHandler("name", e.target.value)
+                        }
                       />
                       <Typography variant="caption" sx={{ color: "red" }}>
                         {errors?.name?.message}
@@ -107,7 +123,9 @@ const Contact: React.FC = () => {
                       <InputFieldCommon
                         placeholder="Enter Email Address"
                         type="email"
-                        {...register("email")}
+                        onChange={(e: any) =>
+                          getInTouchFormHandler("email", e.target.value)
+                        }
                       />
                       <Typography variant="caption" sx={{ color: "red" }}>
                         {errors?.email?.message}
@@ -121,8 +139,10 @@ const Contact: React.FC = () => {
                       </InputLabel>
                       <InputFieldCommon
                         placeholder="Enter Phone Number"
-                        type="number"
-                        {...register("phoneNumber")}
+                        type="tel"
+                        onChange={(e: any) =>
+                          getInTouchFormHandler("phoneNumber", e.target.value)
+                        }
                       />
                       <Typography variant="caption" sx={{ color: "red" }}>
                         {errors?.phoneNumber?.message}
@@ -136,7 +156,9 @@ const Contact: React.FC = () => {
                       </InputLabel>
                       <InputFieldCommon
                         placeholder="I want to contact for..."
-                        {...register("subject")}
+                        onChange={(e: any) =>
+                          getInTouchFormHandler("subject", e.target.value)
+                        }
                       />
                       <Typography variant="caption" sx={{ color: "red" }}>
                         {errors?.subject?.message}
@@ -152,7 +174,13 @@ const Contact: React.FC = () => {
                         placeholder="Your message here..."
                         multiline
                         minRows={5}
+                        onChange={(e: any) =>
+                          getInTouchFormHandler("message", e.target.value)
+                        }
                       />
+                      <Typography variant="caption" sx={{ color: "red" }}>
+                        {errors?.message?.message}
+                      </Typography>
                     </Box>
                   </Grid>
                   <Grid item xs={3}>
@@ -179,12 +207,12 @@ const Contact: React.FC = () => {
                         src={listData.icon}
                         width={24}
                         height={24}
-                        alt="call-icon"
+                        alt="icon"
                       />
                     </i>
                     <Link
                       rel="noreferrer"
-                      aria-label="testlabel"
+                      aria-label="contact-link"
                       href={listData.href}
                     >
                       <Typography variant="caption" className="label">
