@@ -76,7 +76,7 @@ const Carousel: React.FC = () => {
         loop: true,
         grabCursor: true,
         on: {
-          slideChange: (swiper) => {
+          slideChange: (swiper: any) => {
             setActiveIndex(swiper.realIndex);
           }
         }

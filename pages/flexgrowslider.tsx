@@ -376,3 +376,9 @@
 // };
 
 // export default Flexgrowslider;
+
+const flexgrowslider = () => {
+  return <div>name</div>;
+};
+
+export default flexgrowslider;

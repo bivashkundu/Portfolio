@@ -139,3 +139,9 @@
 // };
 
 // export default GrowSlider;
+
+const GrowSlider = () => {
+  return <div>name</div>;
+};
+
+export default GrowSlider;

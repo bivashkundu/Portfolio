@@ -6,6 +6,8 @@ export const HeroSectionWrap = styled(Box)`
   background: url(${assest.heroBg}) no-repeat;
 
   .static-hero-inner {
+    padding-right: 5px;
+
     h1 {
       font-weight: 800;
       margin-bottom: 15px;
