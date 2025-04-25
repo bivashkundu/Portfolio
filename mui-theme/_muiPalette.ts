@@ -47,30 +47,36 @@ export const primaryColors = {
   color494949: "#494949",
   color111111: "#111111",
   color232221: "#232221",
-  color373737: "#373737"
+  color373737: "#373737",
+  secondaryBodyBg: "#1D1D1D"
 };
 
 export const pallete = (mode: PaletteMode): PaletteOptions => {
   return {
     mode,
     background: {
-      default: mode === "light" ? "#f5f8fa" : "#000",
-      paper: mode === "light" ? "#fff" : "#000"
+      default: mode === "light" ? "#FFFFFF" : "#000",
+      paper: mode === "light" ? "#FFFFFF" : "#000"
     },
+
     //global
     primary: {
       main: primaryColors.primary,
       dark: primaryColors.primary_600
     },
+
     secondary: {
       main: primaryColors.secondary
     },
+
     info: {
       main: primaryColors.info
     },
+
     error: {
       main: primaryColors.errorMain
     },
+
     warning: {
       main: primaryColors.warningMain
     },
@@ -78,9 +84,10 @@ export const pallete = (mode: PaletteMode): PaletteOptions => {
     text: {
       primary: primaryColors.disabledBg
     },
+
     common: {
-      black: "#000",
-      white: "#fff"
+      black: "#000000",
+      white: "#FFFFFF"
     }
   };
 };

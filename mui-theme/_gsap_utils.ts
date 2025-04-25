@@ -9,6 +9,7 @@ min-height: ${minHeight}px;
     height: 100%;
     min-height: auto !important;
   }
+
   .cmn_sec {
     min-height: 100vh;
     position: relative;
@@ -19,6 +20,7 @@ min-height: ${minHeight}px;
       height: auto;
     }
   }
+
   .add_fixed {
     position: fixed;
     width: 100%;
