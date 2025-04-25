@@ -26,6 +26,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Typewriter from "typewriter-effect";
+import AnimatedScore from "../AnimatedScore/AnimatedScore";
 
 const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -229,15 +230,15 @@ const HeroSection: React.FC<BoxProps> = ({ ...props }) => {
           <Grid item lg={3} ref={fadeInRightRef}>
             <List className="about-exprience-wrap">
               <ListItem>
-                <Typography variant="body1">5+</Typography>
+                <AnimatedScore to={5} subText="+" />
                 <Typography variant="caption">Years of Experience</Typography>
               </ListItem>
               <ListItem>
-                <Typography variant="body1">30+</Typography>
+                <AnimatedScore to={30} subText="+" />
                 <Typography variant="caption">Project Complete</Typography>
               </ListItem>
               <ListItem>
-                <Typography variant="body1">98%</Typography>
+                <AnimatedScore to={98} subText="%" />
                 <Typography variant="caption">Client Satisfactions</Typography>
               </ListItem>
             </List>
