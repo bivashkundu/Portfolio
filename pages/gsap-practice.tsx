@@ -45,33 +45,29 @@ export default function GsapPractice() {
           />
         ))}
       </Box>
-      <Container fixed>
-        <Stack
-          direction="row"
-          sx={{
-            height: "calc(100svh - 160px)",
-            margin: "0 auto",
-            maxWidth: "800px"
-          }}
-        >
-          <List sx={{ width: "100px", bgcolor: "#1d252c", zIndex: "11" }}>
-            <ListItem>
-              <Button onClick={() => handleClick("home")}>Home</Button>
-            </ListItem>
-            <ListItem>
-              <Button onClick={() => handleClick("about")}>About</Button>
-            </ListItem>
-          </List>
-
-          <Box
-            className={getBoxClass("home")}
-            sx={{ background: "red", width: "calc(100% - 100px)" }}
-          />
-
-          <Box
-            className={getBoxClass("about")}
-            sx={{ background: "bisque", width: "calc(100% - 100px)" }}
-          />
+      <Container fixed maxWidth="xl" sx={{ height: "100%" }}>
+        <Stack height="100%" justifyContent="center" alignItems="center">
+          <Stack direction="row" className="section-wrap" width="100%">
+            <List
+              sx={{ width: "100px", bgcolor: "#1d252c", zIndex: "11" }}
+              className="menu-leftbar"
+            >
+              <ListItem>
+                <Button onClick={() => handleClick("home")}>Home</Button>
+              </ListItem>
+              <ListItem>
+                <Button onClick={() => handleClick("about")}>About</Button>
+              </ListItem>
+            </List>
+            <Box
+              className={getBoxClass("home")}
+              sx={{ background: "red", width: "calc(100% - 100px)" }}
+            />
+            <Box
+              className={getBoxClass("about")}
+              sx={{ background: "bisque", width: "calc(100% - 100px)" }}
+            />
+          </Stack>
         </Stack>
       </Container>
     </PageWrap>

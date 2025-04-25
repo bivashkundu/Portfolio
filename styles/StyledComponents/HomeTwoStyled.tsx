@@ -3,19 +3,20 @@ import { Box, styled } from "@mui/material";
 export const PageWrap = styled(Box)`
   position: relative;
   height: 100svh;
-  padding: 80px 0;
+  /* padding: 0.781vw 0; */
   background-color: #000;
   overflow: hidden;
 
   .box {
     position: absolute;
-    left: 560px;
+    left: 5.208vw;
     right: 0;
-    top: 15px;
-    bottom: 15px;
+    top: 0;
+    bottom: 0;
     transform-origin: center left;
     opacity: 0;
     visibility: hidden;
+    width: calc(100% - 5.208vw);
   }
 
   .active {
@@ -67,7 +68,7 @@ export const PageWrap = styled(Box)`
   }
 
   .line {
-    width: 1px;
+    width: 0.052vw;
     height: 100%;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
@@ -78,7 +79,7 @@ export const PageWrap = styled(Box)`
       display: block;
       position: absolute;
       height: 15vh;
-      width: 1px;
+      width: 0.052vw;
       top: -50%;
       left: 0;
       background: linear-gradient(
@@ -100,6 +101,38 @@ export const PageWrap = styled(Box)`
     }
     100% {
       top: 110%;
+    }
+  }
+
+  .MuiContainer-root {
+    @media (min-width: 600px) {
+      padding-left: 0.781vw;
+      padding-right: 0.781vw;
+    }
+
+    @media (min-width: 1536px) {
+      max-width: 80vw;
+    }
+  }
+
+  .section-wrap {
+    height: calc(100svh - 8.333vw);
+    position: relative;
+    align-items: flex-start;
+
+    .menu-leftbar {
+      width: 5.208vw;
+
+      li {
+        padding: 0.417vw 0.833vw;
+
+        button {
+          padding: 0;
+          min-width: 0;
+          border-radius: 0;
+          font-size: 0.833vw;
+        }
+      }
     }
   }
 `;
