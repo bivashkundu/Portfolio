@@ -3,20 +3,19 @@ import { Box, styled } from "@mui/material";
 export const PageWrap = styled(Box)`
   position: relative;
   height: 100svh;
-  /* padding: 0.781vw 0; */
   background-color: #000;
   overflow: hidden;
 
   .box {
     position: absolute;
-    left: 5.208vw;
+    left: 3.75vw;
     right: 0;
     top: 0;
     bottom: 0;
     transform-origin: center left;
     opacity: 0;
     visibility: hidden;
-    width: calc(100% - 5.208vw);
+    width: calc(100% - 3.75vw);
   }
 
   .active {
@@ -110,8 +109,8 @@ export const PageWrap = styled(Box)`
       padding-right: 0.781vw;
     }
 
-    @media (min-width: 1536px) {
-      max-width: 80vw;
+    @media (min-width: 1200px) {
+      max-width: 62.5vw;
     }
   }
 
@@ -121,16 +120,29 @@ export const PageWrap = styled(Box)`
     align-items: flex-start;
 
     .menu-leftbar {
-      width: 5.208vw;
+      width: 3.75vw;
+      position: relative;
+      z-index: 11;
 
-      li {
-        padding: 0.417vw 0.833vw;
+      .top-appbar {
+        background: ${({ theme }) => theme.palette.background.paper};
+        margin-bottom: 0.417vw;
+        border-radius: 0.208vw;
+      }
 
-        button {
-          padding: 0;
-          min-width: 0;
-          border-radius: 0;
-          font-size: 0.833vw;
+      ul {
+        background: ${({ theme }) => theme.palette.background.paper};
+        border-radius: 0.208vw;
+
+        li {
+          padding: 0.417vw 0.833vw;
+
+          button {
+            padding: 0;
+            min-width: 0;
+            border-radius: 0;
+            font-size: 0.833vw;
+          }
         }
       }
     }

@@ -1,11 +1,24 @@
 import { PageWrap } from "@/styles/StyledComponents/HomeTwoStyled";
-import { Box, Button, Container, List, ListItem, Stack } from "@mui/material";
-import { useMemo, useRef, useState } from "react";
+import { ThemeModeContext } from "@/themes/MuiThemeProvider";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
+import {
+  Box,
+  Button,
+  Container,
+  IconButton,
+  List,
+  ListItem,
+  Stack
+} from "@mui/material";
+import { useContext, useMemo, useRef, useState } from "react";
 
 export default function GsapPractice() {
   const [activeBox, setActiveBox] = useState<"home" | "about">("home");
   const [exitingBox, setExitingBox] = useState<"home" | "about" | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { mode, toggleMode } = useContext(ThemeModeContext);
 
   const handleClick = (target: "home" | "about") => {
     if (target !== activeBox) {
@@ -45,20 +58,37 @@ export default function GsapPractice() {
           />
         ))}
       </Box>
-      <Container fixed maxWidth="xl" sx={{ height: "100%" }}>
+      <Container fixed sx={{ height: "100%" }}>
         <Stack height="100%" justifyContent="center" alignItems="center">
           <Stack direction="row" className="section-wrap" width="100%">
-            <List
-              sx={{ width: "100px", bgcolor: "#1d252c", zIndex: "11" }}
-              className="menu-leftbar"
-            >
-              <ListItem>
-                <Button onClick={() => handleClick("home")}>Home</Button>
+            <Box className="menu-leftbar">
+              <Box className="top-appbar">
+                <IconButton>
+                  <WidgetsOutlinedIcon />
+                </IconButton>
+                <IconButton onClick={toggleMode}>
+                  {mode === "light" ? (
+                    <DarkModeOutlinedIcon />
+                  ) : (
+                    <LightModeOutlinedIcon />
+                  )}
+                </IconButton>
+              </Box>
+              <List>
+                {/* <ListItem>
+                
               </ListItem>
               <ListItem>
-                <Button onClick={() => handleClick("about")}>About</Button>
-              </ListItem>
-            </List>
+                
+              </ListItem> */}
+                <ListItem>
+                  <Button onClick={() => handleClick("home")}>Home</Button>
+                </ListItem>
+                <ListItem>
+                  <Button onClick={() => handleClick("about")}>About</Button>
+                </ListItem>
+              </List>
+            </Box>
             <Box
               className={getBoxClass("home")}
               sx={{ background: "red", width: "calc(100% - 100px)" }}
