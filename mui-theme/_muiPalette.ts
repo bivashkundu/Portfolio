@@ -55,7 +55,7 @@ export const pallete = (mode: PaletteMode): PaletteOptions => {
   return {
     mode,
     background: {
-      default: mode === "light" ? "#FFFFFF" : "#000",
+      default: mode === "light" ? "#FFFFFF" : "#000000",
       paper: mode === "light" ? "#FFFFFF" : "#1d252c"
     },
 

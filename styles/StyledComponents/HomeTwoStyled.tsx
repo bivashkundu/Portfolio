@@ -6,16 +6,20 @@ export const PageWrap = styled(Box)`
   background-color: #000;
   overflow: hidden;
 
+  .right-box-main {
+    width: calc(100% - 25vw);
+  }
+
   .box {
     position: absolute;
-    left: 3.75vw;
+    left: 29.56vw;
     right: 0;
     top: 0;
     bottom: 0;
     transform-origin: center left;
     opacity: 0;
     visibility: hidden;
-    width: calc(100% - 3.75vw);
+    width: calc(100% - 29.56vw);
   }
 
   .active {
@@ -118,6 +122,7 @@ export const PageWrap = styled(Box)`
     height: calc(100svh - 8.333vw);
     position: relative;
     align-items: flex-start;
+    gap: 15px;
 
     .menu-leftbar {
       width: 3.75vw;
@@ -128,6 +133,15 @@ export const PageWrap = styled(Box)`
         background: ${({ theme }) => theme.palette.background.paper};
         margin-bottom: 0.417vw;
         border-radius: 0.208vw;
+
+        button {
+          width: 100%;
+          padding: 0.625vw;
+
+          svg {
+            font-size: 1.25vw;
+          }
+        }
       }
 
       ul {
@@ -135,16 +149,30 @@ export const PageWrap = styled(Box)`
         border-radius: 0.208vw;
 
         li {
-          padding: 0.417vw 0.833vw;
+          justify-content: center;
+          padding: 0;
 
           button {
-            padding: 0;
+            padding: 0.469vw 0.156vw;
             min-width: 0;
             border-radius: 0;
-            font-size: 0.833vw;
+            font-size: 0.625vw;
+            flex-direction: column;
+
+            i {
+              line-height: 0;
+
+              svg {
+                font-size: 0.833vw;
+              }
+            }
           }
         }
       }
+    }
+
+    .right-wrapper {
+      width: calc(100% - 4.271vw);
     }
   }
 `;

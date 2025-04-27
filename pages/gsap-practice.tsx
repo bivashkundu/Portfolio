@@ -1,7 +1,10 @@
+import MyCard from "@/components/MyCard/MyCard";
 import { PageWrap } from "@/styles/StyledComponents/HomeTwoStyled";
 import { ThemeModeContext } from "@/themes/MuiThemeProvider";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
+import Person3OutlinedIcon from "@mui/icons-material/Person3Outlined";
 import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
 import {
   Box,
@@ -15,12 +18,12 @@ import {
 import { useContext, useMemo, useRef, useState } from "react";
 
 export default function GsapPractice() {
-  const [activeBox, setActiveBox] = useState<"home" | "about">("home");
-  const [exitingBox, setExitingBox] = useState<"home" | "about" | null>(null);
+  const [activeBox, setActiveBox] = useState<"about" | "Resume">("about");
+  const [exitingBox, setExitingBox] = useState<"about" | "Resume" | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { mode, toggleMode } = useContext(ThemeModeContext);
 
-  const handleClick = (target: "home" | "about") => {
+  const handleClick = (target: "about" | "Resume") => {
     if (target !== activeBox) {
       setExitingBox(activeBox);
       setActiveBox(target);
@@ -31,7 +34,7 @@ export default function GsapPractice() {
     }
   };
 
-  const getBoxClass = (box: "home" | "about") => {
+  const getBoxClass = (box: "about" | "Resume") => {
     if (activeBox === box) return "box active";
     if (exitingBox === box) return "box exiting";
     return "box";
@@ -63,10 +66,10 @@ export default function GsapPractice() {
           <Stack direction="row" className="section-wrap" width="100%">
             <Box className="menu-leftbar">
               <Box className="top-appbar">
-                <IconButton>
+                <IconButton disableRipple>
                   <WidgetsOutlinedIcon />
                 </IconButton>
-                <IconButton onClick={toggleMode}>
+                <IconButton onClick={toggleMode} disableRipple>
                   {mode === "light" ? (
                     <DarkModeOutlinedIcon />
                   ) : (
@@ -75,28 +78,37 @@ export default function GsapPractice() {
                 </IconButton>
               </Box>
               <List>
-                {/* <ListItem>
-                
-              </ListItem>
-              <ListItem>
-                
-              </ListItem> */}
                 <ListItem>
-                  <Button onClick={() => handleClick("home")}>Home</Button>
+                  <Button onClick={() => handleClick("about")}>
+                    <i>
+                      <Person3OutlinedIcon />
+                    </i>
+                    About
+                  </Button>
                 </ListItem>
                 <ListItem>
-                  <Button onClick={() => handleClick("about")}>About</Button>
+                  <Button onClick={() => handleClick("Resume")}>
+                    <i>
+                      <ListAltOutlinedIcon />
+                    </i>
+                    Resume
+                  </Button>
                 </ListItem>
               </List>
             </Box>
-            <Box
-              className={getBoxClass("home")}
-              sx={{ background: "red", width: "calc(100% - 100px)" }}
-            />
-            <Box
-              className={getBoxClass("about")}
-              sx={{ background: "bisque", width: "calc(100% - 100px)" }}
-            />
+            <Stack direction="row" className="right-wrapper">
+              <MyCard />
+              <Box className="right-box-main">
+                <Box
+                  className={getBoxClass("about")}
+                  sx={{ background: "red", width: "calc(100% - 100px)" }}
+                />
+                <Box
+                  className={getBoxClass("Resume")}
+                  sx={{ background: "bisque", width: "calc(100% - 100px)" }}
+                />
+              </Box>
+            </Stack>
           </Stack>
         </Stack>
       </Container>

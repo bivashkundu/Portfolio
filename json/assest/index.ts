@@ -28,5 +28,7 @@ export default {
   iconPhone: "/assets/images/phone-call-icon.svg",
   iconMail: "/assets/images/mail-icon.svg",
   iconSkype: "/assets/images/skype-black-icon.svg",
-  iconMaps: "/assets/images/maps-icon.svg"
+  iconMaps: "/assets/images/maps-icon.svg",
+  mycardBg: "/assets/images/card-bg.png",
+  bivash: "/assets/images/bivash.png"
 };
