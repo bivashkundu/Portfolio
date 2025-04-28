@@ -12,6 +12,7 @@ export const HeroSectionWrap = styled(Box)`
       font-weight: 800;
       margin-bottom: 15px;
       font-size: 72px;
+      color: ${({ theme }) => theme.palette.common.black};
 
       span {
         display: block;
