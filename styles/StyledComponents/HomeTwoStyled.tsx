@@ -12,14 +12,14 @@ export const PageWrap = styled(Box)`
 
   .box {
     position: absolute;
-    left: 29.56vw;
+    left: 29.063vw;
     right: 0;
     top: 0;
     bottom: 0;
     transform-origin: center left;
     opacity: 0;
     visibility: hidden;
-    width: calc(100% - 29.56vw);
+    width: calc(100% - 29.063vw);
   }
 
   .active {
@@ -122,7 +122,7 @@ export const PageWrap = styled(Box)`
     height: calc(100svh - 8.333vw);
     position: relative;
     align-items: flex-start;
-    gap: 15px;
+    gap: 0.313vw;
 
     .menu-leftbar {
       width: 3.75vw;
@@ -147,6 +147,7 @@ export const PageWrap = styled(Box)`
       ul {
         background: ${({ theme }) => theme.palette.background.paper};
         border-radius: 0.208vw;
+        padding: 0.417vw 0;
 
         li {
           justify-content: center;
@@ -172,7 +173,7 @@ export const PageWrap = styled(Box)`
     }
 
     .right-wrapper {
-      width: calc(100% - 4.271vw);
+      width: calc(100% - 4.036vw);
     }
   }
 `;
