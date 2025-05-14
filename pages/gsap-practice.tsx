@@ -77,8 +77,8 @@ export default function GsapPractice() {
                   )}
                 </IconButton>
               </Box>
-              <List>
-                <ListItem>
+              <List disablePadding>
+                <ListItem disablePadding>
                   <Button onClick={() => handleClick("about")}>
                     <i>
                       <Person3OutlinedIcon />
@@ -86,7 +86,7 @@ export default function GsapPractice() {
                     About
                   </Button>
                 </ListItem>
-                <ListItem>
+                <ListItem disablePadding>
                   <Button onClick={() => handleClick("Resume")}>
                     <i>
                       <ListAltOutlinedIcon />

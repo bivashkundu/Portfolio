@@ -1,7 +1,9 @@
 import assest from "@/json/assest";
+import { sociallinks } from "@/json/mock/common.mock";
 import { MyCardPaper } from "@/styles/StyledComponents/MyCardStyled";
-import { Avatar, Box, Paper, Typography } from "@mui/material";
+import { Avatar, Box, List, ListItem, Paper, Typography } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 import Typewriter from "typewriter-effect";
 
 const MyCard = () => {
@@ -32,6 +34,15 @@ const MyCard = () => {
               loop: true
             }}
           />
+          <List className="social-links" disablePadding>
+            {sociallinks.map((data, index) => (
+              <ListItem disablePadding key={index}>
+                <Link rel="noreferrer" aria-label="testlabel" href={data.href}>
+                  {data.icon}
+                </Link>
+              </ListItem>
+            ))}
+          </List>
         </Box>
       </Paper>
     </MyCardPaper>
