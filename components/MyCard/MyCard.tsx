@@ -1,8 +1,18 @@
 import assest from "@/json/assest";
 import { sociallinks } from "@/json/mock/common.mock";
 import { MyCardPaper } from "@/styles/StyledComponents/MyCardStyled";
-import { Avatar, Box, List, ListItem, Paper, Typography } from "@mui/material";
-import Image from "next/image";
+import DownloadingIcon from "@mui/icons-material/Downloading";
+import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
+import {
+  Avatar,
+  Box,
+  List,
+  ListItem,
+  Paper,
+  Stack,
+  Typography
+} from "@mui/material";
+// import Image from "next/image";
 import Link from "next/link";
 import Typewriter from "typewriter-effect";
 
@@ -11,12 +21,27 @@ const MyCard = () => {
     <MyCardPaper>
       <Paper elevation={0} className="mycard-paper">
         <figure>
-          <Image
-            src={assest.mycardBg}
+          {/* <Image
+            // src={assest.mycardBg}
+            src="https://ryancv.bslthemes.com/system/wp-content/uploads/sites/5/2022/07/pexels-mikhail-nilov-6963744.mp4"
             alt="mycardBg"
             width={512}
             height={484}
-          />
+          /> */}
+          <video
+            width={512}
+            height={484}
+            controls={false}
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source
+              src="https://ryancv.bslthemes.com/system/wp-content/uploads/sites/5/2022/07/pexels-mikhail-nilov-6963744.mp4"
+              type="video/mp4"
+            />
+          </video>
         </figure>
         <Box className="myavt">
           <Avatar
@@ -43,6 +68,25 @@ const MyCard = () => {
               </ListItem>
             ))}
           </List>
+          <Stack
+            direction="row"
+            alignItems="center"
+            flexWrap="wrap"
+            className="car-btm-sec"
+          >
+            <Link href="/">
+              Download CV
+              <i>
+                <DownloadingIcon />
+              </i>
+            </Link>
+            <Link href="/">
+              Contact Me
+              <i>
+                <SendOutlinedIcon />
+              </i>
+            </Link>
+          </Stack>
         </Box>
       </Paper>
     </MyCardPaper>

@@ -20,6 +20,7 @@ export const PageWrap = styled(Box)`
     opacity: 0;
     visibility: hidden;
     width: calc(100% - 29.063vw);
+    height: 100%;
   }
 
   .active {
@@ -119,7 +120,7 @@ export const PageWrap = styled(Box)`
   }
 
   .section-wrap {
-    height: calc(100svh - 8.333vw);
+    max-height: calc(100svh - 8.333vw);
     position: relative;
     align-items: flex-start;
     gap: 0.313vw;

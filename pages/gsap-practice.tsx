@@ -17,24 +17,36 @@ import {
 } from "@mui/material";
 import { useContext, useMemo, useRef, useState } from "react";
 
+const boxData = [
+  { key: "about", label: "About", icon: <Person3OutlinedIcon />, bg: "red" },
+  {
+    key: "resume",
+    label: "Resume",
+    icon: <ListAltOutlinedIcon />,
+    bg: "bisque"
+  }
+] as const;
+
+type BoxKey = (typeof boxData)[number]["key"];
+
 export default function GsapPractice() {
-  const [activeBox, setActiveBox] = useState<"about" | "Resume">("about");
-  const [exitingBox, setExitingBox] = useState<"about" | "Resume" | null>(null);
+  const [activeBox, setActiveBox] = useState<BoxKey>("resume");
+  const [exitingBox, setExitingBox] = useState<BoxKey | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { mode, toggleMode } = useContext(ThemeModeContext);
 
-  const handleClick = (target: "about" | "Resume") => {
+  const handleClick = (target: BoxKey) => {
     if (target !== activeBox) {
       setExitingBox(activeBox);
       setActiveBox(target);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
         setExitingBox(null);
-      }, 600);
+      }, 800);
     }
   };
 
-  const getBoxClass = (box: "about" | "Resume") => {
+  const getBoxClass = (box: BoxKey) => {
     if (activeBox === box) return "box active";
     if (exitingBox === box) return "box exiting";
     return "box";
@@ -78,35 +90,26 @@ export default function GsapPractice() {
                 </IconButton>
               </Box>
               <List disablePadding>
-                <ListItem disablePadding>
-                  <Button onClick={() => handleClick("about")}>
-                    <i>
-                      <Person3OutlinedIcon />
-                    </i>
-                    About
-                  </Button>
-                </ListItem>
-                <ListItem disablePadding>
-                  <Button onClick={() => handleClick("Resume")}>
-                    <i>
-                      <ListAltOutlinedIcon />
-                    </i>
-                    Resume
-                  </Button>
-                </ListItem>
+                {boxData.map((item) => (
+                  <ListItem key={item.key} disablePadding>
+                    <Button onClick={() => handleClick(item.key)}>
+                      <i>{item.icon}</i>
+                      {item.label}
+                    </Button>
+                  </ListItem>
+                ))}
               </List>
             </Box>
             <Stack direction="row" className="right-wrapper">
               <MyCard />
               <Box className="right-box-main">
-                <Box
-                  className={getBoxClass("about")}
-                  sx={{ background: "red", width: "calc(100% - 100px)" }}
-                />
-                <Box
-                  className={getBoxClass("Resume")}
-                  sx={{ background: "bisque", width: "calc(100% - 100px)" }}
-                />
+                {boxData.map((item) => (
+                  <Box
+                    key={item.key}
+                    className={getBoxClass(item.key)}
+                    sx={{ background: item.bg, width: "calc(100% - 100px)" }}
+                  />
+                ))}
               </Box>
             </Stack>
           </Stack>

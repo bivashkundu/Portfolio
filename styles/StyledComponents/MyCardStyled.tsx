@@ -32,7 +32,8 @@ export const MyCardPaper = styled(Box)`
     height: 35.5svh;
     clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 20% 100%, 0% 80%);
 
-    img {
+    img,
+    video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -73,12 +74,15 @@ export const MyCardPaper = styled(Box)`
   }
 
   .my-info {
-    margin-top: 1.563vw;
+    margin-top: 1.25vw;
 
     h1 {
-      font-size: 1.25vw;
+      font-size: 1.354vw;
       font-weight: 500;
       color: ${({ theme }) => theme.palette.common.white};
+      letter-spacing: 0.104vw;
+      font-style: italic;
+      margin-bottom: 0.781vw;
     }
 
     .Typewriter {
@@ -91,6 +95,7 @@ export const MyCardPaper = styled(Box)`
       align-items: center;
       justify-content: center;
       gap: 0 0.781vw;
+      margin-top: 1.25vw;
 
       li {
         width: auto;
@@ -139,6 +144,68 @@ export const MyCardPaper = styled(Box)`
               z-index: 1;
             }
           }
+        }
+      }
+    }
+  }
+
+  .car-btm-sec {
+    position: relative;
+    margin-top: 1.042vw;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 0.052vw;
+      background: radial-gradient(
+        ellipse at left,
+        rgba(197, 202, 213, 0.15) 0%,
+        rgba(255, 255, 255, 0) 70%
+      );
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0 0.417vw;
+      text-transform: uppercase;
+      font-size: 0.729vw;
+      color: ${({ theme }) => theme.palette.common.white};
+      font-weight: 700;
+      text-decoration: none;
+      width: 50%;
+      padding: 1.042vw 0.521vw;
+      position: relative;
+
+      &:hover {
+        color: #52e035;
+      }
+
+      i {
+        line-height: 0;
+
+        svg {
+          font-size: 0.833vw;
+        }
+      }
+
+      &:first-child {
+        &::before {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 0.052vw;
+          height: 100%;
+          background: radial-gradient(
+            ellipse at top,
+            rgba(197, 202, 213, 0.15) 0%,
+            rgba(255, 255, 255, 0) 70%
+          );
         }
       }
     }
