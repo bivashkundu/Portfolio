@@ -1,6 +1,6 @@
 import assest from "@/json/assest";
 import { sociallinks } from "@/json/mock/common.mock";
-import { MyCardPaper } from "@/styles/StyledComponents/MyCardStyled";
+import { MyCardPaper } from "@/styles/StyledComponents/Home2Styled/MyCardStyled";
 import DownloadingIcon from "@mui/icons-material/Downloading";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import {

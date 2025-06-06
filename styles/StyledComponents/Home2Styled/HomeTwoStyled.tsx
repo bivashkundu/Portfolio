@@ -3,7 +3,7 @@ import { Box, styled } from "@mui/material";
 export const PageWrap = styled(Box)`
   position: relative;
   height: 100svh;
-  background-color: #000;
+  background-color: #202020;
   overflow: hidden;
 
   .right-box-main {
@@ -21,6 +21,7 @@ export const PageWrap = styled(Box)`
     visibility: hidden;
     width: calc(100% - 29.063vw);
     height: 100%;
+    border-radius: 0;
   }
 
   .active {

@@ -1,4 +1,3 @@
-/* eslint-disable mui-path-imports/mui-path-imports */
 //  MUI pallete colors will be listed here
 
 import { PaletteMode, PaletteOptions } from "@mui/material";
@@ -52,6 +51,17 @@ export const primaryColors = {
 };
 
 export const pallete = (mode: PaletteMode): PaletteOptions => {
+  const whiteColor = "#FFFFFF";
+  const blackColor = "#000000";
+
+  const hexWithOpacity = (hex: string, opacity: number) => {
+    const alpha = Math.round(opacity * 255)
+      .toString(16)
+      .padStart(2, "0");
+
+    return `${hex}${alpha}`;
+  };
+
   return {
     mode,
     background: {
@@ -86,8 +96,12 @@ export const pallete = (mode: PaletteMode): PaletteOptions => {
     },
 
     common: {
-      black: "#000000",
-      white: "#FFFFFF"
+      black: blackColor,
+      white: whiteColor
+    },
+
+    customColors: {
+      white100: mode === "dark" ? hexWithOpacity(whiteColor, 0.55) : blackColor
     }
   };
 };

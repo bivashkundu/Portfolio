@@ -10,6 +10,7 @@ export const MyCardPaper = styled(Box)`
     overflow: hidden;
     position: relative;
     z-index: 1;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
   }
 
   &::after {

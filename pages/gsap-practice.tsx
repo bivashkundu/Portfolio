@@ -1,5 +1,7 @@
-import MyCard from "@/components/MyCard/MyCard";
-import { PageWrap } from "@/styles/StyledComponents/HomeTwoStyled";
+import AboutMe from "@/components/Home2/AboutMe";
+import MyCard from "@/components/Home2/MyCard";
+import ParticlesBackground from "@/components/Home2/ParticlesBackground";
+import { PageWrap } from "@/styles/StyledComponents/Home2Styled/HomeTwoStyled";
 import { ThemeModeContext } from "@/themes/MuiThemeProvider";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
@@ -13,24 +15,30 @@ import {
   IconButton,
   List,
   ListItem,
+  Paper,
   Stack
 } from "@mui/material";
-import { useContext, useMemo, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 
 const boxData = [
-  { key: "about", label: "About", icon: <Person3OutlinedIcon />, bg: "red" },
+  {
+    key: "about",
+    label: "About",
+    icon: <Person3OutlinedIcon />,
+    content: <AboutMe />
+  },
   {
     key: "resume",
     label: "Resume",
     icon: <ListAltOutlinedIcon />,
-    bg: "bisque"
+    content: "text2"
   }
 ] as const;
 
 type BoxKey = (typeof boxData)[number]["key"];
 
 export default function GsapPractice() {
-  const [activeBox, setActiveBox] = useState<BoxKey>("resume");
+  const [activeBox, setActiveBox] = useState<BoxKey>("about");
   const [exitingBox, setExitingBox] = useState<BoxKey | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { mode, toggleMode } = useContext(ThemeModeContext);
@@ -52,15 +60,15 @@ export default function GsapPractice() {
     return "box";
   };
 
-  const lineCount = 11;
-  const lineIds = useMemo(
-    () => Array.from({ length: lineCount }, () => crypto.randomUUID()),
-    []
-  );
+  // const lineCount = 11;
+  // const lineIds = useMemo(
+  //   () => Array.from({ length: lineCount }, () => crypto.randomUUID()),
+  //   []
+  // );
 
   return (
     <PageWrap>
-      <Box className="lines">
+      {/* <Box className="lines">
         {lineIds.map((id, index) => (
           <Box
             key={id}
@@ -72,7 +80,8 @@ export default function GsapPractice() {
             }
           />
         ))}
-      </Box>
+      </Box> */}
+      <ParticlesBackground />
       <Container fixed sx={{ height: "100%" }}>
         <Stack height="100%" justifyContent="center" alignItems="center">
           <Stack direction="row" className="section-wrap" width="100%">
@@ -104,11 +113,14 @@ export default function GsapPractice() {
               <MyCard />
               <Box className="right-box-main">
                 {boxData.map((item) => (
-                  <Box
+                  <Paper
+                    elevation={0}
                     key={item.key}
-                    className={getBoxClass(item.key)}
-                    sx={{ background: item.bg, width: "calc(100% - 100px)" }}
-                  />
+                    className={`cmn-box ${getBoxClass(item.key)}`}
+                    sx={{ width: "calc(100% - 100px)" }}
+                  >
+                    {item.content}
+                  </Paper>
                 ))}
               </Box>
             </Stack>
