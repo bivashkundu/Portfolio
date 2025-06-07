@@ -1,15 +1,8 @@
 import { PageAboutMe } from "@/styles/StyledComponents/Home2Styled/AboutMeStyled";
-import CallIcon from "@mui/icons-material/Call";
-import MailIcon from "@mui/icons-material/Mail";
-import {
-  Box,
-  Grid,
-  InputLabel,
-  Stack,
-  Typography,
-  useTheme
-} from "@mui/material";
-import Link from "next/link";
+// import CallIcon from "@mui/icons-material/Call";
+// import MailIcon from "@mui/icons-material/Mail";
+import { Box, Typography, useTheme } from "@mui/material";
+// import Link from "next/link";
 import SectionHeading from "./SectionHeading/SectionHeading";
 
 const AboutMe = () => {
@@ -35,7 +28,7 @@ const AboutMe = () => {
           problem-solving, always looking to improve my skills and stay updated
           with the latest web trends and technologies.
         </Typography>
-        <Box className="info-sec">
+        {/* <Box className="info-sec">
           <Grid container>
             <Grid item md={6} xs={12}>
               <Stack
@@ -76,9 +69,9 @@ const AboutMe = () => {
               </Stack>
             </Grid>
           </Grid>
-        </Box>
+        </Box> */}
       </Box>
-      <SectionHeading hedaing="My skills" />
+      <SectionHeading hedaing="fun facts" />
     </PageAboutMe>
   );
 };

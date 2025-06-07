@@ -38,17 +38,21 @@ export const PageAboutMe = styled(Box)`
         .my-media-right {
           width: calc(100% - 1.563vw);
           padding-left: 0.521vw;
+          /* line-height: 1; */
 
           .MuiFormLabel-root {
             font-size: 0.729vw;
             color: ${({ theme }) => theme.palette.common.white};
             font-weight: 600;
+            margin-bottom: 0.26vw;
+            /* line-height: 1; */
           }
 
           a {
             text-decoration: none;
             color: ${({ theme }) => theme.palette.customColors.white100};
             font-size: 0.729vw;
+            /* line-height: 1; */
 
             &:hover {
               color: ${({ theme }) => theme.palette.primary.main};
