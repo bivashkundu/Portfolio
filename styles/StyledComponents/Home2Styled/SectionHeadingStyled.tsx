@@ -23,6 +23,7 @@ export const SectionHeadingBox = styled(Box)`
     font-weight: 600;
     position: relative;
     padding-left: 0.521vw;
+    color: ${({ theme }) => theme.palette.customColors?.headingColor};
 
     &::before {
       content: "";

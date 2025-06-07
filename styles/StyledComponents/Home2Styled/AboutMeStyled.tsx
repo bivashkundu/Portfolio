@@ -50,7 +50,6 @@ export const PageAboutMe = styled(Box)`
 
           a {
             text-decoration: none;
-            color: ${({ theme }) => theme.palette.customColors.white100};
             font-size: 0.729vw;
             /* line-height: 1; */
 

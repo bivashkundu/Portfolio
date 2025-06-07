@@ -1,8 +1,17 @@
 import { PageAboutMe } from "@/styles/StyledComponents/Home2Styled/AboutMeStyled";
 // import CallIcon from "@mui/icons-material/Call";
+import CallIcon from "@/ui/Icons/CallIcon";
 // import MailIcon from "@mui/icons-material/Mail";
-import { Box, Typography, useTheme } from "@mui/material";
-// import Link from "next/link";
+import MailIcon from "@/ui/Icons/MailIcon";
+import {
+  Box,
+  Grid,
+  InputLabel,
+  Stack,
+  Typography,
+  useTheme
+} from "@mui/material";
+import Link from "next/link";
 import SectionHeading from "./SectionHeading/SectionHeading";
 
 const AboutMe = () => {
@@ -28,7 +37,7 @@ const AboutMe = () => {
           problem-solving, always looking to improve my skills and stay updated
           with the latest web trends and technologies.
         </Typography>
-        {/* <Box className="info-sec">
+        <Box className="info-sec">
           <Grid container>
             <Grid item md={6} xs={12}>
               <Stack
@@ -44,7 +53,10 @@ const AboutMe = () => {
                   <InputLabel sx={{ textTransform: "uppercase" }}>
                     Email
                   </InputLabel>
-                  <Link href="mailto:myself.bivash@gmail.com">
+                  <Link
+                    href="mailto:myself.bivash@gmail.com"
+                    style={{ color: theme.palette.customColors?.white100 }}
+                  >
                     myself.bivash@gmail.com
                   </Link>
                 </Box>
@@ -64,12 +76,17 @@ const AboutMe = () => {
                   <InputLabel sx={{ textTransform: "uppercase" }}>
                     Call
                   </InputLabel>
-                  <Link href="tel:+8981814014">+91 8981814014</Link>
+                  <Link
+                    href="tel:+8981814014"
+                    style={{ color: theme.palette.customColors?.white100 }}
+                  >
+                    +91 8981814014
+                  </Link>
                 </Box>
               </Stack>
             </Grid>
           </Grid>
-        </Box> */}
+        </Box>
       </Box>
       <SectionHeading hedaing="fun facts" />
     </PageAboutMe>

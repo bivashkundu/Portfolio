@@ -80,7 +80,7 @@ export const MyCardPaper = styled(Box)`
     h1 {
       font-size: 1.354vw;
       font-weight: 500;
-      color: ${({ theme }) => theme.palette.common.white};
+      color: ${({ theme }) => theme.palette.customColors?.headingColor};
       letter-spacing: 0.104vw;
       font-style: italic;
       margin-bottom: 0.781vw;

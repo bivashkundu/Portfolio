@@ -53,6 +53,7 @@ export const primaryColors = {
 export const pallete = (mode: PaletteMode): PaletteOptions => {
   const whiteColor = "#FFFFFF";
   const blackColor = "#000000";
+  const primaryMain = primaryColors.primary;
 
   const hexWithOpacity = (hex: string, opacity: number) => {
     const alpha = Math.round(opacity * 255)
@@ -71,7 +72,7 @@ export const pallete = (mode: PaletteMode): PaletteOptions => {
 
     //global
     primary: {
-      main: primaryColors.primary,
+      main: primaryMain,
       dark: primaryColors.primary_600
     },
 
@@ -101,7 +102,9 @@ export const pallete = (mode: PaletteMode): PaletteOptions => {
     },
 
     customColors: {
-      white100: mode === "dark" ? hexWithOpacity(whiteColor, 0.55) : blackColor
+      white100: mode === "dark" ? hexWithOpacity(whiteColor, 0.55) : "#646464",
+      headingColor:
+        mode === "dark" ? hexWithOpacity(whiteColor, 0.85) : "#323232"
     }
   };
 };

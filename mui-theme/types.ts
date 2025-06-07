@@ -5,6 +5,8 @@ declare module "@mui/material/styles" {
   interface Palette {
     customColors: {
       white100: string;
+      headingColor: string;
+
       // Add all other custom keys here
     };
   }
@@ -12,6 +14,7 @@ declare module "@mui/material/styles" {
   interface PaletteOptions {
     customColors?: {
       white100: string;
+      headingColor: string;
       // Add all other custom keys here
     };
   }
