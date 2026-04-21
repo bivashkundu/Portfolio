@@ -274,7 +274,7 @@ export const AboutSectionWrap = styled(Box)`
 
 export const OuterCardGradiant = styled(Box, {
   shouldForwardProp: (data) => data !== "color"
-})<{ color?: string }>`
+}) <{ color?: string }>`
   background: ${({ color }) =>
     color ||
     "linear-gradient(180deg, rgba(255, 230, 0, 0.6) 0%, rgba(31, 30, 28, 0.6) 67.59%)"};

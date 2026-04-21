@@ -32,26 +32,29 @@ export const PageAboutMe = styled(Box)`
           svg {
             font-size: 1.25vw;
             color: ${({ theme }) => theme.palette.primary.main};
+            width: 1.25vw;
+            height: 1.25vw;
           }
         }
 
         .my-media-right {
           width: calc(100% - 1.563vw);
           padding-left: 0.521vw;
-          /* line-height: 1; */
+          line-height: normal;
 
           .MuiFormLabel-root {
             font-size: 0.729vw;
             color: ${({ theme }) => theme.palette.common.white};
             font-weight: 600;
             margin-bottom: 0.26vw;
-            /* line-height: 1; */
+            line-height: 1.5;
           }
 
           a {
             text-decoration: none;
             font-size: 0.729vw;
-            /* line-height: 1; */
+            line-height: 1.5;
+            display: inline-block;
 
             &:hover {
               color: ${({ theme }) => theme.palette.primary.main};
@@ -59,6 +62,35 @@ export const PageAboutMe = styled(Box)`
           }
         }
       }
+    }
+  }
+
+  .pricing-sec {
+    padding: 1.302vw 1.042vw;
+
+    .basic-pricebox {
+      .i-span {
+        line-height: 0;
+        color: ${({ theme }) => theme.palette.primary.main};
+
+        svg {
+          width: 1.25vw;
+          height: 1.25vw;
+        }
+      }
+
+      .pricing-header {
+        .header-left {
+      .sm-label {
+      font-size: 0.833vw;
+      margin-bottom: 0.781vw;
+
+      span {
+        color: ${({ theme }) => theme.palette.primary.main};
+      }
+    }
+  }
+    }
     }
   }
 `;

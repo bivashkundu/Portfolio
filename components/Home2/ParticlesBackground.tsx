@@ -19,11 +19,6 @@ const ParticlesBackground: React.FC = () => {
     <Particles
       id="tsparticles"
       options={{
-        background: {
-          //   color: {
-          //     value: "#0d47a1"
-          //   }
-        },
         particles: {
           number: {
             value: 60

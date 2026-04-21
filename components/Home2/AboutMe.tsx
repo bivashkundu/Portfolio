@@ -1,8 +1,7 @@
 import { PageAboutMe } from "@/styles/StyledComponents/Home2Styled/AboutMeStyled";
-// import CallIcon from "@mui/icons-material/Call";
 import CallIcon from "@/ui/Icons/CallIcon";
-// import MailIcon from "@mui/icons-material/Mail";
 import MailIcon from "@/ui/Icons/MailIcon";
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import {
   Box,
   Grid,
@@ -88,7 +87,28 @@ const AboutMe = () => {
           </Grid>
         </Box>
       </Box>
-      <SectionHeading hedaing="fun facts" />
+      <SectionHeading hedaing="My Pricing" />
+      <Box className="pricing-sec">
+        <Box className='basic-pricebox'>
+          <span className="i-span"><ManageAccountsIcon /></span>
+          <Stack direction='row' alignItems='center' flexWrap='wrap' justifyContent='space-between' className="pricing-header">
+            <Box className="header-left">
+              <Typography variant="h5" className="sm-label">
+                Make Your Single Page
+              </Typography>
+              <Typography variant="caption">
+                Elementor / WPBakery
+              </Typography>
+            </Box>
+            <Box className="header-right">
+              <Typography variant="body1">
+                $12
+              </Typography>
+            </Box>
+          </Stack>
+          <Typography variant="body1">Create a visually stunning and professionally crafted page that reflects your brand identity and leaves a lasting impression on your audience.</Typography>
+        </Box>
+      </Box>
     </PageAboutMe>
   );
 };

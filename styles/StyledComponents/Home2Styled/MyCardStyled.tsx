@@ -181,6 +181,7 @@ export const MyCardPaper = styled(Box)`
       width: 50%;
       padding: 1.042vw 0.521vw;
       position: relative;
+      line-height: 1.5;
 
       &:hover {
         color: #52e035;
@@ -191,6 +192,8 @@ export const MyCardPaper = styled(Box)`
 
         svg {
           font-size: 0.833vw;
+          width: 0.833vw;
+          height: 0.833vw;
         }
       }
 
