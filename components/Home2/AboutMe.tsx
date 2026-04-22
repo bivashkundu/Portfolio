@@ -4,6 +4,7 @@ import MailIcon from "@/ui/Icons/MailIcon";
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import {
   Box,
+  Button,
   Grid,
   InputLabel,
   Stack,
@@ -12,6 +13,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import SectionHeading from "./SectionHeading/SectionHeading";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 const AboutMe = () => {
   const theme = useTheme();
@@ -88,16 +90,16 @@ const AboutMe = () => {
         </Box>
       </Box>
       <SectionHeading hedaing="My Pricing" />
-      <Box className="pricing-sec">
-        <Box className='basic-pricebox'>
+      <Stack direction='row' flexWrap='wrap' className="pricing-sec">
+        <Box className='basic-pricebox single-page'>
           <span className="i-span"><ManageAccountsIcon /></span>
-          <Stack direction='row' alignItems='center' flexWrap='wrap' justifyContent='space-between' className="pricing-header">
+          <Box className="pricing-header">
             <Box className="header-left">
               <Typography variant="h5" className="sm-label">
                 Make Your Single Page
               </Typography>
-              <Typography variant="caption">
-                Elementor / WPBakery
+              <Typography variant="caption" color={theme.palette.customColors?.white100}>
+                Crafted for Impact & Performance
               </Typography>
             </Box>
             <Box className="header-right">
@@ -105,10 +107,31 @@ const AboutMe = () => {
                 $12.00
               </Typography>
             </Box>
-          </Stack>
-          <Typography variant="body1">Create a visually stunning and professionally crafted page that reflects your brand identity and leaves a lasting impression on your audience. Create a visually stunning and professionally crafted page that reflects your brand identity and leaves a lasting impression on your audience.</Typography>
+          </Box>
+          <Typography variant="body1" className="plan-subtitle" color={theme.palette.customColors?.white100}>I design and develop modern, responsive single-page websites tailored to your brand. Each page is clean, user-friendly, and optimized for performance, helping you present your content clearly, engage your audience effectively, and create a strong, lasting impression.</Typography>
+          <Button className="order-btn" endIcon={<ArrowRightAltIcon />}>Order Now</Button>
         </Box>
-      </Box>
+        <Box className='basic-pricebox hourly-package'>
+          <span className="i-span"><ManageAccountsIcon /></span>
+          <Box className="pricing-header">
+            <Box className="header-left">
+              <Typography variant="h5" className="sm-label">
+                Hourly Package
+              </Typography>
+              <Typography variant="caption" color={theme.palette.customColors?.white100}>
+                Precision Work, Hourly Billing
+              </Typography>
+            </Box>
+            <Box className="header-right">
+              <Typography variant="body1">
+                $7.00
+              </Typography>
+            </Box>
+          </Box>
+          <Typography variant="body1" className="plan-subtitle" color={theme.palette.customColors?.white100}>I provide flexible, on-demand development support billed hourly. From bug fixes to feature updates and maintenance, I deliver efficient, reliable work with clear communication, helping you manage tasks quickly while staying in control of your time and budget.</Typography>
+          <Button className="order-btn" endIcon={<ArrowRightAltIcon />}>Order Now</Button>
+        </Box>
+      </Stack>
     </PageAboutMe>
   );
 };

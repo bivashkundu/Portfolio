@@ -1,6 +1,7 @@
 import AboutMe from "@/components/Home2/AboutMe";
 import MyCard from "@/components/Home2/MyCard";
 import ParticlesBackground from "@/components/Home2/ParticlesBackground";
+import Resume from "@/components/Home2/Resume";
 import SmoothScroll from "@/components/SmoothScroll";
 import { PageWrap } from "@/styles/StyledComponents/Home2Styled/HomeTwoStyled";
 import { ThemeModeContext } from "@/themes/MuiThemeProvider";
@@ -20,7 +21,8 @@ import {
     Paper,
     Stack
 } from "@mui/material";
-import { useContext, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { useContext, useEffect, useRef, useState } from "react";
 
 const boxData = [
     {
@@ -33,16 +35,19 @@ const boxData = [
         key: "resume",
         label: "Resume",
         icon: <ListAltOutlinedIcon />,
-        content: "text2"
+        content: <Resume />
     }
 ] as const;
 
 type BoxKey = (typeof boxData)[number]["key"];
 
 export default function Newindex() {
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const cursorRef = useRef<HTMLDivElement>(null);
+
     const [activeBox, setActiveBox] = useState<BoxKey>("about");
     const [exitingBox, setExitingBox] = useState<BoxKey | null>(null);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
     const { mode, toggleMode } = useContext(ThemeModeContext);
 
     const handleClick = (target: BoxKey) => {
@@ -62,7 +67,26 @@ export default function Newindex() {
         return "box";
     };
 
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (cursorRef.current) {
+                gsap.to(cursorRef.current, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    xPercent: -50,
+                    yPercent: -50,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            }
+        };
 
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, []);
 
     return (
         <PageWrap>
@@ -112,6 +136,7 @@ export default function Newindex() {
                     </Stack>
                 </Stack>
             </Container>
+            <Box ref={cursorRef} className='cursor-dot' />
         </PageWrap>
     );
 }

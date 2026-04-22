@@ -331,7 +331,8 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
           }
         },
         defaultProps: {
-          disableElevation: true
+          disableElevation: true,
+          disableRipple: true
         }
       },
 

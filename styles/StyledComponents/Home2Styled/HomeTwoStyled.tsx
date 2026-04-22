@@ -9,19 +9,19 @@ export const PageWrap = styled(Box)`
   overflow: hidden;
 
   .right-box-main {
-    width: calc(100% - ${CustomSize(480)});
+    width: calc(100% - ${CustomSize(450)});
   }
 
   .box {
     position: absolute;
-    left: ${CustomSize(558)};
+    left: ${CustomSize(528)};
     right: 0;
     top: 0;
     bottom: 0;
     transform-origin: center left;
     opacity: 0;
     visibility: hidden;
-    width: calc(100% - ${CustomSize(558)});
+    width: calc(100% - ${CustomSize(528)});
     height: 100%;
     border-radius: 0;
   }
@@ -123,9 +123,7 @@ export const PageWrap = styled(Box)`
   }
 
   .section-wrap {
-    max-height: calc(100svh - ${CustomSize(160)});
     position: relative;
-    align-items: flex-start;
     gap: ${CustomSize(6)};
 
     .menu-leftbar {
@@ -182,6 +180,36 @@ export const PageWrap = styled(Box)`
   }
 
   .mainpaper-scroll {
-    max-height: calc(100svh - ${CustomSize(283)});
+    max-height: 100%;
+  }
+
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: ${CustomSize(30)};
+    height: ${CustomSize(30)};
+    opacity: 0;
+    background: rgba(120,204,109,.25);
+    background-color: rgba(120, 204, 109, 0.25);
+    border: 1px solid transparent;
+    transition: width .3s cubic-bezier(.3,0,.3,1),height .3s cubic-bezier(.3,0,.3,1),background .3s cubic-bezier(.3,0,.3,1),border-color .7s cubic-bezier(.3,0,.3,1);
+    -webkit-transition: width .3s cubic-bezier(.3,0,.3,1),height .3s cubic-bezier(.3,0,.3,1),background .3s cubic-bezier(.3,0,.3,1),border-color .7s cubic-bezier(.3,0,.3,1);
+    z-index: 999;
+    pointer-events: none;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+
+    &::after {
+      content: "";
+      width: ${CustomSize(10)};
+      height: ${CustomSize(10)};
+      border-radius: 50%;
+      background-color: ${({ theme }) => theme.palette.primary.main};
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 `;

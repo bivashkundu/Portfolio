@@ -3,7 +3,7 @@ import { CustomSize, CustomSpacing } from "@/ui/CustomViewSize";
 import { Box, styled } from "@mui/material";
 
 export const MyCardPaper = styled(Box)`
-  width: ${CustomSize(480)};
+  width: ${CustomSize(450)};
   border-radius: ${CustomSize(5)};
   position: relative;
   z-index: 9;
