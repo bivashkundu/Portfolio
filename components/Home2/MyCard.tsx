@@ -1,6 +1,7 @@
 import assest from "@/json/assest";
 import { sociallinks } from "@/json/mock/common.mock";
 import { MyCardPaper } from "@/styles/StyledComponents/Home2Styled/MyCardStyled";
+import { CustomSize } from "@/ui/CustomViewSize";
 import DownloadingIcon from "@mui/icons-material/Downloading";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import {
@@ -47,7 +48,7 @@ const MyCard = () => {
           <Avatar
             src={assest.bivash}
             alt="Bivash Kundu"
-            sx={{ width: "7.292vw", height: "7.292vw" }}
+            sx={{ width: CustomSize(140), height: CustomSize(140) }}
           />
         </Box>
         <Box className="my-info" sx={{ textAlign: "center" }}>

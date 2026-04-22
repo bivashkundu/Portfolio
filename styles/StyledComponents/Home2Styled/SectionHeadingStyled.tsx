@@ -1,7 +1,9 @@
+
+import { CustomSize, CustomSpacing } from "@/ui/CustomViewSize";
 import { Box, styled } from "@mui/material";
 
 export const SectionHeadingBox = styled(Box)`
-  padding: 1.302vw 1.042vw;
+  padding: ${CustomSpacing(25, 20)};
   position: relative;
 
   &::before {
@@ -10,7 +12,7 @@ export const SectionHeadingBox = styled(Box)`
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 0.052vw;
+    height: ${CustomSize(1)};
     background: radial-gradient(
       ellipse at left,
       rgba(197, 202, 213, 0.15) 0%,
@@ -19,10 +21,10 @@ export const SectionHeadingBox = styled(Box)`
   }
 
   h2 {
-    font-size: 1.042vw;
+    font-size: ${CustomSize(20)};
     font-weight: 600;
     position: relative;
-    padding-left: 0.521vw;
+    padding-left: ${CustomSize(10)};
     color: ${({ theme }) => theme.palette.customColors?.headingColor};
 
     &::before {
@@ -30,15 +32,15 @@ export const SectionHeadingBox = styled(Box)`
       position: absolute;
       left: 0;
       top: 0;
-      width: 1.563vw;
-      height: 1.563vw;
+      width: ${CustomSize(30)};
+      height: ${CustomSize(30)};
       background: linear-gradient(
         135deg,
         rgba(82, 224, 53, 0.4) 0%,
         rgba(82, 224, 53, 0.01) 100%
       );
       z-index: -1;
-      border-radius: 1.563vw;
+      border-radius: ${CustomSize(30)};
     }
 
     &::first-letter {

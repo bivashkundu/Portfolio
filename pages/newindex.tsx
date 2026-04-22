@@ -1,8 +1,10 @@
 import AboutMe from "@/components/Home2/AboutMe";
 import MyCard from "@/components/Home2/MyCard";
 import ParticlesBackground from "@/components/Home2/ParticlesBackground";
+import SmoothScroll from "@/components/SmoothScroll";
 import { PageWrap } from "@/styles/StyledComponents/Home2Styled/HomeTwoStyled";
 import { ThemeModeContext } from "@/themes/MuiThemeProvider";
+import { CustomSize } from "@/ui/CustomViewSize";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
@@ -100,9 +102,9 @@ export default function Newindex() {
                                         elevation={0}
                                         key={item.key}
                                         className={`cmn-box ${getBoxClass(item.key)}`}
-                                        sx={{ width: "calc(100% - 5.208vw)" }}
+                                        sx={{ width: `calc(100% - ${CustomSize(100)})` }}
                                     >
-                                        {item.content}
+                                        <SmoothScroll className="mainpaper-scroll">{item.content}</SmoothScroll>
                                     </Paper>
                                 ))}
                             </Box>

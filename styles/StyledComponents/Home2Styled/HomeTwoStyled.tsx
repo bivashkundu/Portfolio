@@ -1,3 +1,5 @@
+
+import { CustomSize, CustomSpacing } from "@/ui/CustomViewSize";
 import { Box, styled } from "@mui/material";
 
 export const PageWrap = styled(Box)`
@@ -7,19 +9,19 @@ export const PageWrap = styled(Box)`
   overflow: hidden;
 
   .right-box-main {
-    width: calc(100% - 25vw);
+    width: calc(100% - ${CustomSize(480)});
   }
 
   .box {
     position: absolute;
-    left: 29.063vw;
+    left: ${CustomSize(558)};
     right: 0;
     top: 0;
     bottom: 0;
     transform-origin: center left;
     opacity: 0;
     visibility: hidden;
-    width: calc(100% - 29.063vw);
+    width: calc(100% - ${CustomSize(558)});
     height: 100%;
     border-radius: 0;
   }
@@ -73,7 +75,7 @@ export const PageWrap = styled(Box)`
   }
 
   .line {
-    width: 0.052vw;
+    width: ${CustomSize(1)};
     height: 100%;
     background: rgba(255, 255, 255, 0.1);
     position: relative;
@@ -84,7 +86,7 @@ export const PageWrap = styled(Box)`
       display: block;
       position: absolute;
       height: 15vh;
-      width: 0.052vw;
+      width: ${CustomSize(1)};
       top: -50%;
       left: 0;
       background: linear-gradient(
@@ -111,62 +113,62 @@ export const PageWrap = styled(Box)`
 
   .MuiContainer-root {
     @media (min-width: 600px) {
-      padding-left: 0.781vw;
-      padding-right: 0.781vw;
+      padding-left: ${CustomSize(15)};
+      padding-right: ${CustomSize(15)};
     }
 
     @media (min-width: 1200px) {
-      max-width: 62.5vw;
+      max-width: ${CustomSize(1200)};
     }
   }
 
   .section-wrap {
-    max-height: calc(100svh - 8.333vw);
+    max-height: calc(100svh - ${CustomSize(160)});
     position: relative;
     align-items: flex-start;
-    gap: 0.313vw;
+    gap: ${CustomSize(6)};
 
     .menu-leftbar {
-      width: 3.75vw;
+      width: ${CustomSize(72)};
       position: relative;
       z-index: 11;
 
       .top-appbar {
         background: ${({ theme }) => theme.palette.background.paper};
-        margin-bottom: 0.417vw;
-        border-radius: 0.208vw;
+        margin-bottom: ${CustomSize(8)};
+        border-radius: ${CustomSize(4)};
 
         button {
           width: 100%;
-          padding: 0.625vw;
+          padding: ${CustomSize(12)};
 
           svg {
-            font-size: 1.25vw;
+            font-size: ${CustomSize(24)};
           }
         }
       }
 
       ul {
         background: ${({ theme }) => theme.palette.background.paper};
-        border-radius: 0.208vw;
-        padding: 0.417vw 0;
+        border-radius: ${CustomSize(4)};
+        padding: ${CustomSize(8)} 0;
 
         li {
           justify-content: center;
           padding: 0;
 
           button {
-            padding: 0.469vw 0.156vw;
+            padding: ${CustomSpacing(9, 3)};
             min-width: 0;
             border-radius: 0;
-            font-size: 0.625vw;
+            font-size: ${CustomSize(12)};
             flex-direction: column;
 
             i {
               line-height: 0;
 
               svg {
-                font-size: 0.833vw;
+                font-size: ${CustomSize(16)};
               }
             }
           }
@@ -175,7 +177,11 @@ export const PageWrap = styled(Box)`
     }
 
     .right-wrapper {
-      width: calc(100% - 4.036vw);
+      width: calc(100% - ${CustomSize(77)});
     }
+  }
+
+  .mainpaper-scroll {
+    max-height: calc(100svh - ${CustomSize(283)});
   }
 `;

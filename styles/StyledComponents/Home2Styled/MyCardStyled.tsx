@@ -1,8 +1,10 @@
+
+import { CustomSize, CustomSpacing } from "@/ui/CustomViewSize";
 import { Box, styled } from "@mui/material";
 
 export const MyCardPaper = styled(Box)`
-  width: 25vw;
-  border-radius: 0.26vw;
+  width: ${CustomSize(480)};
+  border-radius: ${CustomSize(5)};
   position: relative;
   z-index: 9;
 
@@ -16,8 +18,8 @@ export const MyCardPaper = styled(Box)`
   &::after {
     content: "";
     position: absolute;
-    left: -0.781vw;
-    top: -0.781vw;
+    left: ${CustomSize(-15)};
+    top: ${CustomSize(-15)};
     width: 100%;
     height: 100%;
     background: linear-gradient(
@@ -25,7 +27,7 @@ export const MyCardPaper = styled(Box)`
       rgba(82, 224, 53, 0.4) 0%,
       rgba(82, 224, 53, 0.01) 100%
     );
-    border-radius: 0.26vw;
+    border-radius: ${CustomSize(5)};
   }
 
   figure {
@@ -43,51 +45,51 @@ export const MyCardPaper = styled(Box)`
   }
 
   .myavt {
-    margin: -3.646vw auto 0;
+    margin: ${CustomSize(-70)} auto 0;
     position: relative;
 
     &::before {
       content: "";
       position: absolute;
-      top: 0.521vw;
+      top: ${CustomSize(10)};
       left: 48%;
       transform: translateX(-50%);
-      width: 7.292vw;
-      height: 7.292vw;
+      width: ${CustomSize(140)};
+      height: ${CustomSize(140)};
       background: linear-gradient(
         135deg,
         rgba(82, 224, 53, 0.4) 0%,
         rgba(82, 224, 53, 0.01) 100%
       );
-      border-radius: 0.521vw;
+      border-radius: ${CustomSize(10)};
     }
   }
 
   .MuiAvatar-root {
-    border-radius: 0.521vw;
+    border-radius: ${CustomSize(10)};
     margin: 0 auto;
 
     img {
       z-index: 2;
       position: relative;
-      border-radius: 0.521vw;
+      border-radius: ${CustomSize(10)};
     }
   }
 
   .my-info {
-    margin-top: 1.25vw;
+    margin-top: ${CustomSize(24)};
 
     h1 {
-      font-size: 1.354vw;
+      font-size: ${CustomSize(26)};
       font-weight: 500;
       color: ${({ theme }) => theme.palette.customColors?.headingColor};
-      letter-spacing: 0.104vw;
+      letter-spacing: ${CustomSize(2)};
       font-style: italic;
-      margin-bottom: 0.781vw;
+      margin-bottom: ${CustomSize(15)};
     }
 
     .Typewriter {
-      font-size: 0.833vw;
+      font-size: ${CustomSize(16)};
       line-height: normal;
     }
 
@@ -95,8 +97,8 @@ export const MyCardPaper = styled(Box)`
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0 0.781vw;
-      margin-top: 1.25vw;
+      gap: 0 ${CustomSize(15)};
+      margin-top: ${CustomSize(24)};
 
       li {
         width: auto;
@@ -106,8 +108,8 @@ export const MyCardPaper = styled(Box)`
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          width: 2.083vw;
-          height: 2.083vw;
+          width: ${CustomSize(40)};
+          height: ${CustomSize(40)};
           border-radius: 50%;
           position: relative;
 
@@ -130,7 +132,7 @@ export const MyCardPaper = styled(Box)`
           }
 
           svg {
-            width: 1.042vw;
+            width: ${CustomSize(20)};
             height: auto;
             color: ${({ theme }) => theme.palette.common.white};
             position: relative;
@@ -152,7 +154,7 @@ export const MyCardPaper = styled(Box)`
 
   .car-btm-sec {
     position: relative;
-    margin-top: 1.042vw;
+    margin-top: ${CustomSize(20)};
 
     &::before {
       content: "";
@@ -160,7 +162,7 @@ export const MyCardPaper = styled(Box)`
       left: 0;
       top: 0;
       width: 100%;
-      height: 0.052vw;
+      height: ${CustomSize(1)};
       background: radial-gradient(
         ellipse at left,
         rgba(197, 202, 213, 0.15) 0%,
@@ -172,14 +174,14 @@ export const MyCardPaper = styled(Box)`
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0 0.417vw;
+      gap: 0 ${CustomSize(8)};
       text-transform: uppercase;
-      font-size: 0.729vw;
+      font-size: ${CustomSize(14)};
       color: ${({ theme }) => theme.palette.common.white};
       font-weight: 700;
       text-decoration: none;
       width: 50%;
-      padding: 1.042vw 0.521vw;
+      padding: ${CustomSpacing(20, 10)};
       position: relative;
       line-height: 1.5;
 
@@ -191,9 +193,9 @@ export const MyCardPaper = styled(Box)`
         line-height: 0;
 
         svg {
-          font-size: 0.833vw;
-          width: 0.833vw;
-          height: 0.833vw;
+          font-size: ${CustomSize(16)};
+          width: ${CustomSize(16)};
+          height: ${CustomSize(16)};
         }
       }
 
@@ -203,7 +205,7 @@ export const MyCardPaper = styled(Box)`
           position: absolute;
           right: 0;
           top: 0;
-          width: 0.052vw;
+          width: ${CustomSize(1)};
           height: 100%;
           background: radial-gradient(
             ellipse at top,

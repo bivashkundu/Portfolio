@@ -1,12 +1,14 @@
+
+import { CustomSize, CustomSpacing } from "@/ui/CustomViewSize";
 import { Box, styled } from "@mui/material";
 
 export const PageAboutMe = styled(Box)`
   .about-me {
-    padding: 1.302vw 1.042vw;
+    padding: ${CustomSpacing(25, 20)};
 
     .sm-label {
-      font-size: 0.833vw;
-      margin-bottom: 0.781vw;
+      font-size: ${CustomSize(16)};
+      margin-bottom: ${CustomSize(15)};
 
       span {
         color: ${({ theme }) => theme.palette.primary.main};
@@ -14,45 +16,45 @@ export const PageAboutMe = styled(Box)`
     }
 
     p {
-      font-size: 0.729vw;
+      font-size: ${CustomSize(14)};
     }
 
     .info-sec {
-      padding-top: 0.781vw;
+      padding-top: ${CustomSize(15)};
 
       .get-in-stack {
         i {
           line-height: 0;
-          width: 1.563vw;
-          height: 1.563vw;
+          width: ${CustomSize(30)};
+          height: ${CustomSize(30)};
           display: flex;
           align-items: center;
           justify-content: center;
 
           svg {
-            font-size: 1.25vw;
+            font-size: ${CustomSize(24)};
             color: ${({ theme }) => theme.palette.primary.main};
-            width: 1.25vw;
-            height: 1.25vw;
+            width: ${CustomSize(24)};
+            height: ${CustomSize(24)};
           }
         }
 
         .my-media-right {
-          width: calc(100% - 1.563vw);
-          padding-left: 0.521vw;
-          line-height: normal;
+          width: calc(100% - ${CustomSize(30)});
+          padding-left: ${CustomSize(10)};
+          /* line-height: normal; */
 
           .MuiFormLabel-root {
-            font-size: 0.729vw;
+            font-size: ${CustomSize(14)};
             color: ${({ theme }) => theme.palette.common.white};
             font-weight: 600;
-            margin-bottom: 0.26vw;
+            /* margin-bottom: ${CustomSize(5)}; */
             line-height: 1.5;
           }
 
           a {
             text-decoration: none;
-            font-size: 0.729vw;
+            font-size: ${CustomSize(14)};
             line-height: 1.5;
             display: inline-block;
 
@@ -66,7 +68,7 @@ export const PageAboutMe = styled(Box)`
   }
 
   .pricing-sec {
-    padding: 1.302vw 1.042vw;
+    padding: ${CustomSpacing(25, 20)};
 
     .basic-pricebox {
       .i-span {
@@ -74,23 +76,37 @@ export const PageAboutMe = styled(Box)`
         color: ${({ theme }) => theme.palette.primary.main};
 
         svg {
-          width: 1.25vw;
-          height: 1.25vw;
+          width: ${CustomSize(24)};
+          height: ${CustomSize(24)};
         }
       }
 
       .pricing-header {
-        .header-left {
-      .sm-label {
-      font-size: 0.833vw;
-      margin-bottom: 0.781vw;
+        margin: ${CustomSize(15)} 0;
 
-      span {
-        color: ${({ theme }) => theme.palette.primary.main};
+        .header-left {
+          
+          .sm-label {
+            font-size: ${CustomSize(16)};
+
+            span {
+              color: ${({ theme }) => theme.palette.primary.main};
+            }
+          }
+
+          .MuiTypography-caption {
+            font-size: ${CustomSize(14)};
+          }
+        }
+
+        .header-right {
+          .MuiTypography-body1 {
+            font-size: ${CustomSize(24)};
+            color: ${({ theme }) => theme.palette.primary.main};
+            font-weight: 600;
+          }
+        }
       }
-    }
-  }
-    }
     }
   }
 `;

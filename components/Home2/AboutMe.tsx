@@ -102,11 +102,11 @@ const AboutMe = () => {
             </Box>
             <Box className="header-right">
               <Typography variant="body1">
-                $12
+                $12.00
               </Typography>
             </Box>
           </Stack>
-          <Typography variant="body1">Create a visually stunning and professionally crafted page that reflects your brand identity and leaves a lasting impression on your audience.</Typography>
+          <Typography variant="body1">Create a visually stunning and professionally crafted page that reflects your brand identity and leaves a lasting impression on your audience. Create a visually stunning and professionally crafted page that reflects your brand identity and leaves a lasting impression on your audience.</Typography>
         </Box>
       </Box>
     </PageAboutMe>
